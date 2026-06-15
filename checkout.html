@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nextora | Online Store</title>
+
+
+    <link rel="icon" href="img/icon.png">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- File CSS -->
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+
+
+    <div class="cart">
+        <div class="top_cart">
+            <h3>Cart Items : <span class="Count_item_cart">0</span></h3>
+            <span onclick="open_close_cart()" class="close_cart"><i class="fa-regular fa-circle-xmark"></i></span>
+        </div>
+
+
+        <div class="items_in_cart" id="cart_items">
+
+        </div>
+
+
+        <div class="bottom_cart">
+            <div class="total">
+                <p>subtotal</p>
+                <p class="price_cart_toral">$0</p>
+            </div>
+
+            <div class="button_cart">
+                <a href="#" class="btn_cart btn">Checkout</a>
+                <span onclick="open_close_cart()" class="btn_cart trans_bg btn">Shop More</span>
+            </div>
+        </div>
+
+    </div>
+
+    <header>
+        <div class="top_header">
+            <div class="container">
+                <a href="index.html" class="logo"> <img src="img/logo.png" alt=""></a>
+
+                <form action="" class="search_box">
+
+                    <div class="select_box">
+                        <select id="category" name="category">
+
+                            <option value="All Categories">All Categories</option>
+                            <option value="Electronics & Digita">Electronics & Digita</option>
+                            <option value="Phones & Tablet">Phones & Tablety</option>
+                            <option value="Fashion & Clothings">Fashion & Clothings</option>
+                            <option value="Telivsion & Monitor">Telivsion & Monitor</option>
+                            <option value="Jewelry & Watches">Jewelry & Watches</option>
+                            <option value="Washing Machine">Washing Machine</option>
+                            <option value="Toys & Hobbies">Toys & Hobbies</option>
+
+                        </select>
+                    </div>
+
+                    <input type="text" name="search" id="search" placeholder="Search for Products" required>
+
+                    <button type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+
+
+
+                </form>
+
+                <div class="header_icons">
+                    <div class="icon">
+                        <a href="#">
+                            <i class="fa-regular fa-heart"></i>
+                            <span class="count count_favourite">0</span>
+                        </a>
+                    </div>
+
+                    <div onclick="open_close_cart()" class="icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="count count_item_header">0</span>
+                    </div>
+                     <div class="icon">
+                        <button id="currency-toggle" class="currency-btn">USD</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="bottom_header">
+            <div class="container">
+                <nav class="nav">
+
+                    <span onclick="open_Menu()" class="open_menu"><i class="fa-solid fa-bars"></i></span>
+
+                    <div class="category_nav">
+
+                        <div onclick="Open_Categ_list()" class="category_btn">
+                            <i class="fa-solid fa-bars"></i>
+                            <p>Browse Category</p>
+                            <i class="fa-solid fa-angle-down"></i>
+
+                        </div>
+
+                        <div class="category_nav_list">
+                            <a href="#">Top 10 Offers</a>
+                            <a href="#">Electronics & Digita</a>
+                            <a href="#">Phones & Tablet</a>
+                            <a href="#">Fashion & Clothings</a>
+                            <a href="#">Telivsion & Monitor</a>
+                            <a href="#">Jewelry & Watches</a>
+                            <a href="#">Toys & Hobbies</a>
+                        </div>
+
+                    </div>
+
+                    <ul class="nav_links">
+
+                        <span onclick="open_Menu()" class="close_menu"><i class="fa-regular fa-circle-xmark"></i></span>
+
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="index.html">Electronics</a></li>
+                        <li><a href="index.html">Appliances</a></li>
+                        <li><a href="index.html">Mobiles</a></li>
+                        <li><a href="#Contact">Contact US</a></li>
+
+                    </ul>
+
+                </nav>
+
+                <div class="login_signup btns">
+                    <a href="https://wa.me/201069036495" target="_blank" class="btn">Contact US <i
+                            class="fa-solid fa-right-to-bracket"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+
+    <section class="checkout">
+        <form class="section">
+            <div class="container">
+                <div class="ordersummary">
+                    <h1>Order Summary</h1>
+
+                    <div class="items" id="items">
+                        <!-- From js -->
+                    </div>
+
+
+
+                    <div class="bottom_summary">
+                        <div class="shop_table">
+                            <p>Subtotal :</p>
+                            <span class="subtotal_checkout">0.00</span>
+                        </div>
+
+
+                        <div class="shop_table">
+                            <p>Shipping :</p>
+                            <span class="shipping">20.00</span>
+                        </div>
+
+
+
+                        <div class="shop_table">
+                            <p>total :</p>
+                            <span class="total_checkout">0.00</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="input_info">
+
+                </div>
+            </div>
+        </form>
+
+        <form class="section" id="checkoutForm">
+            <div class="container">
+                <div class="ordersummary">
+                    <h1>Order Details</h1>
+
+                    <div class="form-input">
+                        <input type="text" name="name" placeholder="Full Name" required><br>
+                        <input type="email" name="email" placeholder="Email Address" required><br>
+                        <input type="text" name="phone" placeholder="Phone Number" required><br>
+                        <input type="text" name="address" placeholder="Shipping Address" required><br>
+                        <input type="text" name="city" placeholder="City" required><br>
+                        <input type="text" name="postal_code" placeholder="Postal Code" required>
+                    </div>
+
+
+                    <div>
+                        <div class="button_div">
+                            <button type="submit" id="placeOrderBtn">Place order</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="input_info">
+
+                </div>
+            </div>
+        </form>
+    </section>
+
+
+    <footer id="Contact">
+        <div class="container">
+
+            <div class="big_row">
+                <img class="logo_footer" src="img/white_logo.png" alt="">
+
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, vero?</p>
+
+                 <div class="icons_footer">
+                    <a href="tel:+201069036495"><i class="fa-solid fa-phone"></i></a>
+                    <a href="https://www.facebook.com/share/1JYYTaqy3C/" target="_blank"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://wa.me/201069036495" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="row">
+                <h4>Find It Fast</h4>
+
+                <div class="links">
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Laptops & Computers </a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Smart Phones & Tablets</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> TV & Audio</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Appliances</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Jewelry & Watches</a>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <h4>Quick Links</h4>
+
+                <div class="links">
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Your Account </a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Returns & Exchanges</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Shipping & Delivery</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Estimated Delivery Time</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Purchase Hisotry</a>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <h4>Service us</h4>
+
+                <div class="links">
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Support Center</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Term & Conditions</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Privacy Policy</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Help</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> FAQS</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom_footer">
+            <div class="container">
+                <p>&copy; <span>Nextora Store.</span> All Rights Reserved.</p>
+
+                <div class="payment_img">
+                    <img src="img/payment_method.png" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script src="JS/main.js"></script>
+    <script>
+        function fetchCard() {
+            const cartItemsContainer = document.getElementById("items")
+
+            const currencySymbol = localStorage.getItem('currency') === 'USD' ? '$' : 'EGP';
+
+            const cart = JSON.parse(localStorage.getItem('cart')) || []
+
+            var total_Price = 0
+            var total_count = 0
+
+            cartItemsContainer.innerHTML = "";
+            cart.forEach((item, index) => {
+
+                let total_Price_item = item.price * item.quantity;
+
+                total_Price += total_Price_item
+                total_count += item.quantity
+
+
+                cartItemsContainer.innerHTML += `
+            <div class="item_cart">
+                            <div class="image_name">
+                                <img src="${item.img}" alt="">
+
+                                <div class="content">
+                                    <h4>${item.name}</h4>
+                                    <p class="price_cart">${currencySymbol} ${total_Price_item}</p>
+                                    <div class="quantity_control">
+                                        <button class="decrease_quantity" data-index=${index}>-</button>
+                                        <span class="quantity">${item.quantity}</span>
+                                        <button class="increase_quantity" data-index=${index}>+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="delete_item" data-index=${index}><i class="fa-solid fa-trash-can"></i></button>
+                        </div> 
+
+        `
+            })
+
+            const price_cart_total = document.querySelector('.total_checkout')
+
+            const subtotal_checkout = document.querySelector('.subtotal_checkout')
+
+            const count_item_cart = document.querySelector('.Count_item_cart')
+
+            const count_item_header = document.querySelector('.count_item_header')
+
+            const shipping = document.querySelector('.shipping')
+
+            shipping.innerHTML = `${currencySymbol} 20.00`
+
+            subtotal_checkout.innerHTML = `${currencySymbol} ${total_Price}`
+
+            price_cart_total.innerHTML = `${currencySymbol} ${total_Price + 20}`
+
+            count_item_cart.innerHTML = total_count;
+
+            count_item_header.innerHTML = total_count;
+
+
+            const increaseButtons = document.querySelectorAll(".Increase_quantity")
+            const decreaseButtons = document.querySelectorAll(".decrease_quantity")
+
+            increaseButtons.forEach(button => {
+                button.addEventListener("click", (event) => {
+                    const itemIndex = event.target.getAttribute("data-index")
+                    increaseQuantity(itemIndex)
+                })
+            })
+
+
+            decreaseButtons.forEach(button => {
+                button.addEventListener("click", (event) => {
+                    const itemIndex = event.target.getAttribute("data-index")
+                    decreaseQuantity(itemIndex)
+                })
+            })
+
+            const delteButtons = document.querySelectorAll('.delete_item')
+
+            delteButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const itemIndex = event.target.closest('button').getAttribute('data-inex')
+                    removeFromCart(itemIndex)
+                })
+            })
+        }
+        fetchCard();
+
+        const form = document.getElementById("checkoutForm");
+        const button = document.getElementById("placeOrderBtn");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            button.disabled = true;
+            button.innerText = "Processing...";
+
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            if (cart.length === 0) {
+                alert("Your cart is empty. Please add items to your cart before placing an order.");
+                button.disabled = false;
+                button.innerText = "Place order";
+                return;
+            }
+
+            setTimeout(() => {
+                form.reset();
+                localStorage.removeItem("cart");
+                alert("Thank you for your order!\n\nYour order has been successfully submitted. A member of our sales team will contact you within 24 hours.");
+                window.location.href = "index.html";
+            }, 3500);
+        });
+    </script>
+</body>
+
+</html>
