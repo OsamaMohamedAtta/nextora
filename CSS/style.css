@@ -178,6 +178,7 @@ header .top_header .search_box button i {
 header .top_header .header_icons {
     display: flex;
     gap: 30px;
+    align-items: center;
 }
 
 header .top_header .header_icons .icon {
@@ -1175,6 +1176,15 @@ footer .bottom_footer .payment_img {
 /* End Cart */
 
 
+.icon button {
+    background: var(--main_color);
+    color: var(--white_color);
+    border: 1px solid var(--main_color);
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
 
 /* checkout page */
