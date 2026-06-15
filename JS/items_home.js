@@ -1,33 +1,27 @@
 fetch('products.json')
-    .then(response => response.json())
-    .then(data => {
+.then(response => response.json())
+.then(data => {
+ 
+    const cart = JSON.parse(localStorage.getItem('cart')) || []
 
-        const cart = JSON.parse(localStorage.getItem('cart')) || []
+    const swiper_items_sale = document.getElementById("swiper_items_sale")
 
-        const swiper_items_sale = document.getElementById("swiper_items_sale")
-
-        const swiper_elctronics = document.getElementById("swiper_elctronics")
-
-
-        const swiper_appliances = document.getElementById("swiper_appliances")
-
-        const swiper_mobiles = document.getElementById("swiper_mobiles")
+    const swiper_elctronics = document.getElementById("swiper_elctronics")
 
 
-        data.forEach(product => {
-            if (product.old_price) {
+    const swiper_appliances = document.getElementById("swiper_appliances")
 
-                const isInCart = cart.some(cartItem => cartItem.id === product.id);
+    const swiper_mobiles = document.getElementById("swiper_mobiles")
 
-                const currencySymbol = localStorage.getItem('currency') === 'USD' ? '$' : 'EGP';
-                const currency = localStorage.getItem('currency');
 
-                product.price = currency === 'USD' ? product.price_usd : product.price;
-                product.old_price = currency === 'USD' ? product.old_price_usd : product.old_price;
+    data.forEach(product => {
+        if(product.old_price){
 
-                const percent_disc = Math.floor((product.old_price - product.price) / product.old_price * 100)
+            const isInCart = cart.some(cartItem => cartItem.id === product.id)
 
-                swiper_items_sale.innerHTML += `
+            const percent_disc = Math.floor((product.old_price - product.price) / product.old_price * 100)
+            
+            swiper_items_sale.innerHTML += `
 
 
              <div class="swiper-slide product">
@@ -48,8 +42,8 @@ fetch('products.json')
                         <p class="name_product"><a href="#">${product.name}</a></p>
 
                         <div class="price">
-                            <p><span>${currencySymbol} ${product.price}</span></p>
-                            <p class="old_price">${currencySymbol} ${product.old_price}</p>
+                            <p><span>AED ${product.price}</span></p>
+                            <p class="old_price">AED ${product.old_price}</p>
                         </div>
 
                         <div class="icons">
@@ -60,29 +54,30 @@ fetch('products.json')
                         </div>
                     </div>
             
+            
+            
+            
             `
-
-            }
-        })
-
-
-        data.forEach(product => {
-            if (product.catetory == "electronics") {
-
-                const isInCart = cart.some(cartItem => cartItem.id === product.id)
-
-                const currencySymbol = localStorage.getItem('currency') === 'USD' ? '$' : 'EGP';
-                const currency = localStorage.getItem('currency');
-
-                product.price = currency === 'USD' ? product.price_usd : product.price;
-                product.old_price = currency === 'USD' ? product.old_price_usd : product.old_price;
-
-                const old_price_Pargrahp = product.old_price ? `<p class="old_price">${currencySymbol} ${product.old_price}</p>` : "";
-
-                const percent_disc_div = product.old_price ? `<span class="sale_present">%${Math.floor((product.old_price - product.price) / product.old_price * 100)}</span>` : "";
+            
+            
+        }
+    })
 
 
-                swiper_elctronics.innerHTML += `
+    data.forEach(product => {
+        if(product.catetory == "electronics"){
+
+
+            const isInCart = cart.some(cartItem => cartItem.id === product.id)
+
+
+            const old_price_Pargrahp = product.old_price ? `<p class="old_price">AED ${product.old_price}</p>` : "";
+
+            const percent_disc_div = product.old_price ? `<span class="sale_present">%${Math.floor((product.old_price - product.price) / product.old_price * 100)}</span>` : "";
+
+
+
+            swiper_elctronics.innerHTML += `
 
 
             <div class="swiper-slide product">
@@ -103,7 +98,7 @@ fetch('products.json')
                        <p class="name_product"><a href="#">${product.name}</a></p>
 
                        <div class="price">
-                           <p><span>${currencySymbol} ${product.price}</span></p>
+                           <p><span>AED ${product.price}</span></p>
                            ${old_price_Pargrahp}
                        </div>
 
@@ -116,30 +111,28 @@ fetch('products.json')
                    </div>
            
            
+           
+           
            `
 
-            }
-        })
 
 
-        data.forEach(product => {
-            if (product.catetory == "appliances") {
+        }
+    })
 
-                const isInCart = cart.some(cartItem => cartItem.id === product.id)
 
-                const currencySymbol = localStorage.getItem('currency') === 'USD' ? '$' : 'EGP';
-                const currency = localStorage.getItem('currency');
+    data.forEach(product => {
+        if(product.catetory == "appliances"){
 
-                product.price = currency === 'USD' ? product.price_usd : product.price;
-                product.old_price = currency === 'USD' ? product.old_price_usd : product.old_price;
+            const isInCart = cart.some(cartItem => cartItem.id === product.id)
 
-                const old_price_Pargrahp = product.old_price ? `<p class="old_price">${currencySymbol} ${product.old_price}</p>` : "";
+            const old_price_Pargrahp = product.old_price ? `<p class="old_price">AED ${product.old_price}</p>` : "";
 
-                const percent_disc_div = product.old_price ? `<span class="sale_present">%${Math.floor((product.old_price - product.price) / product.old_price * 100)}</span>` : "";
+            const percent_disc_div = product.old_price ? `<span class="sale_present">%${Math.floor((product.old_price - product.price) / product.old_price * 100)}</span>` : "";
 
 
 
-                swiper_appliances.innerHTML += `
+            swiper_appliances.innerHTML += `
 
 
             <div class="swiper-slide product">
@@ -160,7 +153,7 @@ fetch('products.json')
                        <p class="name_product"><a href="#">${product.name}</a></p>
 
                        <div class="price">
-                           <p><span>${currencySymbol} ${product.price}</span></p>
+                           <p><span>AED ${product.price}</span></p>
                            ${old_price_Pargrahp}
                        </div>
 
@@ -179,28 +172,22 @@ fetch('products.json')
 
 
 
-            }
-        })
+        }
+    })
 
 
-        data.forEach(product => {
-            if (product.catetory == "mobiles") {
+    data.forEach(product => {
+        if(product.catetory == "mobiles"){
 
-                const isInCart = cart.some(cartItem => cartItem.id === product.id);
+            const isInCart = cart.some(cartItem => cartItem.id === product.id)
 
-                const currencySymbol = localStorage.getItem('currency') === 'USD' ? '$' : 'EGP';
-                const currency = localStorage.getItem('currency');
+            const old_price_Pargrahp = product.old_price ? `<p class="old_price">AED ${product.old_price}</p>` : "";
 
-                product.price = currency === 'USD' ? product.price_usd : product.price;
-                product.old_price = currency === 'USD' ? product.old_price_usd : product.old_price;
-
-                const old_price_Pargrahp = product.old_price ? `<p class="old_price">${currencySymbol} ${product.old_price}</p>` : "";
-
-                const percent_disc_div = product.old_price ? `<span class="sale_present">%${Math.floor((product.old_price - product.price) / product.old_price * 100)}</span>` : "";
+            const percent_disc_div = product.old_price ? `<span class="sale_present">%${Math.floor((product.old_price - product.price) / product.old_price * 100)}</span>` : "";
 
 
 
-                swiper_mobiles.innerHTML += `
+            swiper_mobiles.innerHTML += `
 
 
             <div class="swiper-slide product">
@@ -221,7 +208,7 @@ fetch('products.json')
                        <p class="name_product"><a href="#">${product.name}</a></p>
 
                        <div class="price">
-                           <p><span>${currencySymbol} ${product.price}</span></p>
+                           <p><span>AED ${product.price}</span></p>
                            ${old_price_Pargrahp}
                        </div>
 
@@ -233,9 +220,14 @@ fetch('products.json')
                        </div>
                    </div>
            
+           
+           
+           
            `
 
-            }
-        })
 
+
+        }
     })
+    
+})

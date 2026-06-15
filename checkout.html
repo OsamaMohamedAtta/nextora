@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nextora | Online Store</title>
+    <title>Techjanet | Online Store</title>
 
 
     <link rel="icon" href="img/icon.png">
@@ -89,9 +89,6 @@
                         <i class="fa-solid fa-cart-shopping"></i>
                         <span class="count count_item_header">0</span>
                     </div>
-                     <div class="icon">
-                        <button id="currency-toggle" class="currency-btn">USD</button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -139,7 +136,7 @@
                 </nav>
 
                 <div class="login_signup btns">
-                    <a href="https://wa.me/201069036495" target="_blank" class="btn">Contact US <i
+                    <a href="https://wa.me/201555725512" target="_blank" class="btn">Contact US <i
                             class="fa-solid fa-right-to-bracket"></i></a>
                 </div>
 
@@ -163,20 +160,20 @@
                     <div class="bottom_summary">
                         <div class="shop_table">
                             <p>Subtotal :</p>
-                            <span class="subtotal_checkout">0.00</span>
+                            <span class="subtotal_checkout">AED 0.00</span>
                         </div>
 
 
                         <div class="shop_table">
                             <p>Shipping :</p>
-                            <span class="shipping">20.00</span>
+                            <span class="">AED 20.00</span>
                         </div>
 
 
 
                         <div class="shop_table">
                             <p>total :</p>
-                            <span class="total_checkout">0.00</span>
+                            <span class="total_checkout">AED 0.00</span>
                         </div>
 
                     </div>
@@ -228,11 +225,14 @@
 
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, vero?</p>
 
-                 <div class="icons_footer">
-                    <a href="tel:+201069036495"><i class="fa-solid fa-phone"></i></a>
-                    <a href="https://www.facebook.com/share/1JYYTaqy3C/" target="_blank"><i
+                <div class="icons_footer">
+                    <a href="tel:+201555725512"><i class="fa-solid fa-phone"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100088439904626" target="_blank"><i
                             class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://wa.me/201069036495" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/Techjanet" target="_blank"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@techjanet" target="_blank"><i
+                            class="fa-brands fa-tiktok"></i></a>
                 </div>
             </div>
 
@@ -277,7 +277,7 @@
 
         <div class="bottom_footer">
             <div class="container">
-                <p>&copy; <span>Nextora Store.</span> All Rights Reserved.</p>
+                <p>&copy; <span>Techjanet Store.</span> All Rights Reserved.</p>
 
                 <div class="payment_img">
                     <img src="img/payment_method.png" alt="">
@@ -293,8 +293,6 @@
     <script>
         function fetchCard() {
             const cartItemsContainer = document.getElementById("items")
-
-            const currencySymbol = localStorage.getItem('currency') === 'USD' ? '$' : 'EGP';
 
             const cart = JSON.parse(localStorage.getItem('cart')) || []
 
@@ -317,7 +315,7 @@
 
                                 <div class="content">
                                     <h4>${item.name}</h4>
-                                    <p class="price_cart">${currencySymbol} ${total_Price_item}</p>
+                                    <p class="price_cart">AED ${total_Price_item}</p>
                                     <div class="quantity_control">
                                         <button class="decrease_quantity" data-index=${index}>-</button>
                                         <span class="quantity">${item.quantity}</span>
@@ -339,17 +337,13 @@
 
             const count_item_header = document.querySelector('.count_item_header')
 
-            const shipping = document.querySelector('.shipping')
+            subtotal_checkout.innerHTML = `AED ${total_Price}`
 
-            shipping.innerHTML = `${currencySymbol} 20.00`
+            price_cart_total.innerHTML = `AED ${total_Price + 20}`
 
-            subtotal_checkout.innerHTML = `${currencySymbol} ${total_Price}`
+            count_item_cart.innerHTML = total_count
 
-            price_cart_total.innerHTML = `${currencySymbol} ${total_Price + 20}`
-
-            count_item_cart.innerHTML = total_count;
-
-            count_item_header.innerHTML = total_count;
+            count_item_header.innerHTML = total_count
 
 
             const increaseButtons = document.querySelectorAll(".Increase_quantity")

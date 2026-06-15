@@ -1,7 +1,8 @@
 let category_nav_list = document.querySelector(".category_nav_list");
 
-function Open_Categ_list() {
+function Open_Categ_list(){
     category_nav_list.classList.toggle("active")
+
 }
 
 let nav_links = document.querySelector(".nav_links")
@@ -10,26 +11,6 @@ function open_Menu() {
     nav_links.classList.toggle("active")
 }
 
-let currency_select = localStorage.getItem("currency");
-if (!currency_select) {
-    localStorage.setItem("currency", "EGP")
-}
-
-const currencyBtn = document.getElementById("currency-toggle");
-
-currencyBtn.textContent = currency_select == "USD" ? "EGP" : "USD";
-
-currencyBtn.addEventListener("click", () => {
-    if (currency_select === "USD") {
-        currency_select = "EGP";
-    } else {
-        currency_select = "USD";
-    }
-
-    localStorage.setItem("currency", currency_select);
-    currencyBtn.textContent = currency_select == "USD" ? "EGP" : "USD";
-    window.location.reload();
-});
 
 var cart = document.querySelector('.cart');
 
@@ -38,39 +19,38 @@ function open_close_cart() {
 }
 
 fetch('products.json')
-    .then(response => response.json())
-    .then(data => {
+.then(response => response.json())
+.then(data => {
+    
+    const addToCartButtons = document.querySelectorAll(".btn_add_cart")
 
-        const addToCartButtons = document.querySelectorAll(".btn_add_cart")
+    addToCartButtons.forEach(button =>{
+        button.addEventListener("click", (event) => {
+            const productId = event.target.getAttribute('data-id')
+            const selcetedProduct = data.find(product => product.id == productId)
+            
 
-        addToCartButtons.forEach(button => {
-            button.addEventListener("click", (event) => {
-                console.log('eaad');
-                
-                const productId = event.target.getAttribute('data-id')
-                const selcetedProduct = data.find(product => product.id == productId)
+            addToCart(selcetedProduct)
 
-                addToCart(selcetedProduct)
+            const allMatchingButtons = document.querySelectorAll(`.btn_add_cart[data-id="${productId}"]`)
 
-                const allMatchingButtons = document.querySelectorAll(`.btn_add_cart[data-id="${productId}"]`)
-
-                allMatchingButtons.forEach(btn => {
-                    btn.classList.add("active")
-                    btn.innerHTML = `      <i class="fa-solid fa-cart-shopping"></i> Item in cart`
-                })
+            allMatchingButtons.forEach(btn =>{
+                btn.classList.add("active")
+                btn.innerHTML = `      <i class="fa-solid fa-cart-shopping"></i> Item in cart`
             })
         })
-
-
     })
+    
+    
+})
 
 
 function addToCart(product) {
 
     let cart = JSON.parse(localStorage.getItem('cart')) || []
 
-    cart.push({ ...product, quantity: 1 })
-    localStorage.setItem('cart', JSON.stringify(cart))
+    cart.push({... product , quantity: 1})
+    localStorage.setItem('cart' , JSON.stringify(cart))
 
 
     updateCart()
@@ -86,24 +66,23 @@ function updateCart() {
 
     var total_Price = 0
     var total_count = 0
-    const currencySymbol = localStorage.getItem('currency') === 'USD' ? '$' : 'EGP';
 
-    cartItemsContainer.innerHTML = "";
-    cart.forEach((item, index) => {
+    cartItemsContainer.innerHTML = "" ;
+    cart.forEach((item , index) => {
 
         let total_Price_item = item.price * item.quantity;
 
         total_Price += total_Price_item
         total_count += item.quantity
 
-
+    
         cartItemsContainer.innerHTML += `
         
             <div class="item_cart">
                 <img src="${item.img}" alt="">
                 <div class="content">
                     <h4>${item.name}</h4>
-                    <p class="price_cart">${currencySymbol} ${total_Price_item}</p>
+                    <p class="price_cart">AED ${total_Price_item}</p>
                     <div class="quantity_control">
                         <button class="decrease_quantity" data-index=${index}>-</button>
                         <span class="quantity">${item.quantity}</span>
@@ -120,12 +99,12 @@ function updateCart() {
 
 
     const price_cart_total = document.querySelector('.price_cart_toral')
-
+    
     const count_item_cart = document.querySelector('.Count_item_cart')
 
     const count_item_header = document.querySelector('.count_item_header')
-
-    price_cart_total.innerHTML = `${currencySymbol} ${total_Price}`
+    
+    price_cart_total.innerHTML = `AED ${total_Price}`
 
     count_item_cart.innerHTML = total_count
 
@@ -136,7 +115,7 @@ function updateCart() {
     const decreaseButtons = document.querySelectorAll(".decrease_quantity")
 
     increaseButtons.forEach(button => {
-        button.addEventListener("click", (event) => {
+        button.addEventListener("click" , (event) =>{
             const itemIndex = event.target.getAttribute("data-index")
             increaseQuantity(itemIndex)
         })
@@ -144,7 +123,7 @@ function updateCart() {
 
 
     decreaseButtons.forEach(button => {
-        button.addEventListener("click", (event) => {
+        button.addEventListener("click" , (event) =>{
             const itemIndex = event.target.getAttribute("data-index")
             decreaseQuantity(itemIndex)
         })
@@ -153,9 +132,9 @@ function updateCart() {
 
 
     const delteButtons = document.querySelectorAll('.delete_item')
-
-    delteButtons.forEach(button => {
-        button.addEventListener('click', (event) => {
+    
+    delteButtons.forEach(button =>{
+        button.addEventListener('click' , (event) =>{
             const itemIndex = event.target.closest('button').getAttribute('data-inex')
             removeFromCart(itemIndex)
         })
@@ -164,21 +143,21 @@ function updateCart() {
 }
 
 
-function increaseQuantity(index) {
+function increaseQuantity(index){
     let cart = JSON.parse(localStorage.getItem('cart')) || []
     cart[index].quantity += 1
-    localStorage.setItem('cart', JSON.stringify(cart))
+    localStorage.setItem('cart' , JSON.stringify(cart))
     updateCart()
 }
 
-function decreaseQuantity(index) {
+function decreaseQuantity(index){
     let cart = JSON.parse(localStorage.getItem('cart')) || []
 
-    if (cart[index].quantity > 1) {
+    if (cart[index].quantity > 1){
         cart[index].quantity -= 1
     }
-
-    localStorage.setItem('cart', JSON.stringify(cart))
+ 
+    localStorage.setItem('cart' , JSON.stringify(cart))
     updateCart()
 }
 
@@ -189,7 +168,7 @@ function decreaseQuantity(index) {
 function removeFromCart(index) {
     const cart = JSON.parse(localStorage.getItem('cart')) || []
 
-    const removeProduct = cart.splice(index, 1)[0]
+    const removeProduct = cart.splice(index , 1)[0]
     localStorage.setItem('cart', JSON.stringify(cart))
     updateCart()
     updateButoonsState(removeProduct.id)
@@ -198,9 +177,9 @@ function removeFromCart(index) {
 
 function updateButoonsState(productId) {
     const allMatchingButtons = document.querySelectorAll(`.btn_add_cart[data-id="${productId}"]`)
-    allMatchingButtons.forEach(button => {
+    allMatchingButtons.forEach(button =>{
         button.classList.remove('active');
-        button.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> add to cart`
+        button.innerHTML = `      <i class="fa-solid fa-cart-shopping"></i> add to cart`
     })
 }
 
