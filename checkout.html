@@ -14,10 +14,162 @@
 
     <!-- File CSS -->
     <link rel="stylesheet" href="CSS/style.css">
+
+    <style>
+        :root {
+            --primary-orange: #FF8F00;
+            --dark-orange: #E65100;
+            --light-orange: #FFF3E0;
+            --amazon-dark: #131921;
+            --amazon-nav: #232F3E;
+            --text-dark: #111111;
+            --text-gray: #565959;
+            --bg-white: #FFFFFF;
+            --bg-light: #F7F7F7;
+            --border-color: #DDD;
+            --success-green: #067D62;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 0px;
+            /* Space for mobile sticky footer */
+            padding-top: 0px;
+        }
+
+        /* Top Announcement */
+        .announcement-bar {
+            background: linear-gradient(90deg, var(--dark-orange), var(--primary-orange));
+            color: white;
+            text-align: center;
+            padding: 8px 15px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .announcement-bar span {
+            color: white;
+        }
+
+        /* Header / Navbar */
+        header {
+            background-color: var(--bg-white);
+            border-bottom: 2px solid var(--primary-orange);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--amazon-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--primary-orange);
+        }
+
+        .trust-badges-top {
+            display: flex;
+            gap: 20px;
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .trust-item i {
+            color: var(--primary-orange);
+        }
+
+        /* Trast track style */
+        .free-return {
+            display: none;
+            width: 100%;
+            overflow: hidden;
+            background: #f8f8f8;
+            padding: 12px 0;
+        }
+
+        .trust-track {
+            display: flex !important;
+            width: max-content;
+            gap: 50px;
+            animation: scroll 10s linear infinite;
+        }
+
+        .trust-track .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            font-size: 15px;
+        }
+
+        @keyframes scroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .trust-track:hover {
+            animation-play-state: paused;
+        }
+
+        @media (max-width: 1024px) {
+            .product-hero {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .trust-badges-top {
+                display: none;
+            }
+
+            .free-return {
+                display: block;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
+    <div class="announcement-bar">
+        <span>Limited Time Offer: Get 28% Off + Fast Direct Shipping To Your Doorstep!</span>
+    </div>
 
     <div class="cart">
         <div class="top_cart">
@@ -29,7 +181,6 @@
         <div class="items_in_cart" id="cart_items">
 
         </div>
-
 
         <div class="bottom_cart">
             <div class="total">
@@ -46,107 +197,40 @@
     </div>
 
     <header>
-        <div class="top_header">
-            <div class="container">
-                <a href="index.html" class="logo"> <img src="img/logo.png" alt=""></a>
-
-                <form action="" class="search_box">
-
-                    <div class="select_box">
-                        <select id="category" name="category">
-
-                            <option value="All Categories">All Categories</option>
-                            <option value="Electronics & Digita">Electronics & Digita</option>
-                            <option value="Phones & Tablet">Phones & Tablety</option>
-                            <option value="Fashion & Clothings">Fashion & Clothings</option>
-                            <option value="Telivsion & Monitor">Telivsion & Monitor</option>
-                            <option value="Jewelry & Watches">Jewelry & Watches</option>
-                            <option value="Washing Machine">Washing Machine</option>
-                            <option value="Toys & Hobbies">Toys & Hobbies</option>
-
-                        </select>
-                    </div>
-
-                    <input type="text" name="search" id="search" placeholder="Search for Products" required>
-
-                    <button type="submit">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-
-
-
-                </form>
-
-                <div class="header_icons">
-                    <div class="icon">
-                        <a href="#">
-                            <i class="fa-regular fa-heart"></i>
-                            <span class="count count_favourite">0</span>
-                        </a>
-                    </div>
-
-                    <div onclick="open_close_cart()" class="icon">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <span class="count count_item_header">0</span>
-                    </div>
-                     <div class="icon">
-                        <button id="currency-toggle" class="currency-btn">USD</button>
-                    </div>
-                </div>
+        <div class="nav-container">
+            <a href="index.html" class="logo"> <img src="img/logo.png" alt=""></a>
+            <div class="trust-badges-top">
+                <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> 100% Original Product</div>
+                <div class="trust-item"><i class="fa-solid fa-truck-fast"></i> Fast Shipping (US & WW)</div>
+                <div class="trust-item"><i class="fa-solid fa-rotate-left"></i> 14-Day Free Returns</div>
             </div>
-        </div>
-
-
-        <div class="bottom_header">
-            <div class="container">
-                <nav class="nav">
-
-                    <span onclick="open_Menu()" class="open_menu"><i class="fa-solid fa-bars"></i></span>
-
-                    <div class="category_nav">
-
-                        <div onclick="Open_Categ_list()" class="category_btn">
-                            <i class="fa-solid fa-bars"></i>
-                            <p>Browse Category</p>
-                            <i class="fa-solid fa-angle-down"></i>
-
-                        </div>
-
-                        <div class="category_nav_list">
-                            <a href="#">Top 10 Offers</a>
-                            <a href="#">Electronics & Digita</a>
-                            <a href="#">Phones & Tablet</a>
-                            <a href="#">Fashion & Clothings</a>
-                            <a href="#">Telivsion & Monitor</a>
-                            <a href="#">Jewelry & Watches</a>
-                            <a href="#">Toys & Hobbies</a>
-                        </div>
-
-                    </div>
-
-                    <ul class="nav_links">
-
-                        <span onclick="open_Menu()" class="close_menu"><i class="fa-regular fa-circle-xmark"></i></span>
-
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="index.html">Electronics</a></li>
-                        <li><a href="index.html">Appliances</a></li>
-                        <li><a href="index.html">Mobiles</a></li>
-                        <li><a href="#Contact">Contact US</a></li>
-
-                    </ul>
-
-                </nav>
-
-                <div class="login_signup btns">
-                    <a href="https://wa.me/201069036495" target="_blank" class="btn">Contact US <i
-                            class="fa-solid fa-right-to-bracket"></i></a>
+            <div class="header_icons">
+                <div class="icon">
+                    <a href="#">
+                        <i class="fa-regular fa-heart"></i>
+                        <span class="count count_favourite">0</span>
+                    </a>
                 </div>
 
+                <div onclick="open_close_cart()" class="icon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="count count_item_header">0</span>
+                </div>
+
+                 <div class="icon">
+                    <button id="currency-toggle" class="currency-btn">USD</button>
+                </div>
             </div>
         </div>
     </header>
 
+    <div class="free-return">
+        <div class="trust-badges-top trust-track">
+            <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> 100% Original Product</div>
+            <div class="trust-item"><i class="fa-solid fa-rotate-left"></i> 14-Day Free Returns</div>
+            <div class="trust-item"><i class="fa-solid fa-truck-fast"></i> Fast Shipping (US & WW)</div>
+        </div>
+    </div>
 
     <section class="checkout">
         <form class="section">
@@ -226,9 +310,9 @@
             <div class="big_row">
                 <img class="logo_footer" src="img/white_logo.png" alt="">
 
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, vero?</p>
+                <p>Be the first to know about our latest products and exclusive offers!</p>
 
-                 <div class="icons_footer">
+                <div class="icons_footer">
                     <a href="tel:+201069036495"><i class="fa-solid fa-phone"></i></a>
                     <a href="https://www.facebook.com/share/1JYYTaqy3C/" target="_blank"><i
                             class="fa-brands fa-facebook-f"></i></a>
@@ -240,11 +324,11 @@
                 <h4>Find It Fast</h4>
 
                 <div class="links">
-                    <a href="#"><i class="fa-solid fa-caret-right"></i> Laptops & Computers </a>
-                    <a href="#"><i class="fa-solid fa-caret-right"></i> Smart Phones & Tablets</a>
-                    <a href="#"><i class="fa-solid fa-caret-right"></i> TV & Audio</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Health & Beauty</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Skin Care</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Body Care</a>
                     <a href="#"><i class="fa-solid fa-caret-right"></i> Appliances</a>
-                    <a href="#"><i class="fa-solid fa-caret-right"></i> Jewelry & Watches</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Face Skin Care</a>
                 </div>
             </div>
 
@@ -313,7 +397,7 @@
                 cartItemsContainer.innerHTML += `
             <div class="item_cart">
                             <div class="image_name">
-                                <img src="${item.img}" alt="">
+                                <img src="${item.thumbnail}" alt="">
 
                                 <div class="content">
                                     <h4>${item.name}</h4>
@@ -352,7 +436,7 @@
             count_item_header.innerHTML = total_count;
 
 
-            const increaseButtons = document.querySelectorAll(".Increase_quantity")
+            const increaseButtons = document.querySelectorAll(".increase_quantity")
             const decreaseButtons = document.querySelectorAll(".decrease_quantity")
 
             increaseButtons.forEach(button => {
@@ -374,7 +458,7 @@
 
             delteButtons.forEach(button => {
                 button.addEventListener('click', (event) => {
-                    const itemIndex = event.target.closest('button').getAttribute('data-inex')
+                    const itemIndex = event.target.closest('button').getAttribute('data-index')
                     removeFromCart(itemIndex)
                 })
             })

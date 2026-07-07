@@ -1,3 +1,9 @@
+var cart = document.querySelector('.cart');
+
+function open_close_cart() {
+    cart.classList.toggle("active")
+}
+
 let category_nav_list = document.querySelector(".category_nav_list");
 
 function Open_Categ_list() {
@@ -31,56 +37,57 @@ currencyBtn.addEventListener("click", () => {
     window.location.reload();
 });
 
-var cart = document.querySelector('.cart');
-
-function open_close_cart() {
-    cart.classList.toggle("active")
-}
 
 fetch('products.json')
     .then(response => response.json())
     .then(data => {
+        // Cache products for delegated click handler
+        window.__PRODUCTS = data;
 
-        const addToCartButtons = document.querySelectorAll(".btn_add_cart")
+        // Use event delegation so dynamically-rendered product tiles (index) work
+        document.addEventListener('click', function (e) {
+            const btn = e.target.closest('.btn_add_cart');
+            if (!btn) return;
+            const productId = btn.getAttribute('data-id');
+            const selectedProductRaw = (window.__PRODUCTS || []).find(product => product.id == productId);
+            if (!selectedProductRaw) return;
 
-        addToCartButtons.forEach(button => {
-            button.addEventListener("click", (event) => {
-                console.log('eaad');
+            const currency = localStorage.getItem('currency');
+            const selectedProduct = {
+                ...selectedProductRaw,
+                price: currency === 'USD' ? selectedProductRaw.price_usd : selectedProductRaw.price,
+                old_price: currency === 'USD' ? selectedProductRaw.old_price_usd : selectedProductRaw.old_price,
+                // default to 1 for index clicks; product page may override via getSelectedProduct
+                quantity: 1,
+                selected_size: ''
+            };
 
-                const productId = event.target.getAttribute('data-id')
-                const selcetedProduct = data.find(product => product.id == productId)
+            addToCart(selectedProduct);
 
-                const currency = localStorage.getItem('currency');
+            const allMatchingButtons = document.querySelectorAll(`.btn_add_cart[data-id="${productId}"]`);
+            allMatchingButtons.forEach(b => {
+                b.classList.add('active');
+                b.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> Item in cart`;
+            });
+        });
 
-                selcetedProduct.price = currency === 'USD' ? selcetedProduct.price_usd : selcetedProduct.price;
-                selcetedProduct.old_price = currency === 'USD' ? selcetedProduct.old_price_usd : selcetedProduct.old_price;
-
-                addToCart(selcetedProduct)
-
-                const allMatchingButtons = document.querySelectorAll(`.btn_add_cart[data-id="${productId}"]`)
-
-                allMatchingButtons.forEach(btn => {
-                    btn.classList.add("active")
-                    btn.innerHTML = `      <i class="fa-solid fa-cart-shopping"></i> Item in cart`
-                })
-            })
-        })
-
-
-    })
+    });
 
 
 function addToCart(product) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartKey = `${product.id}-${product.selected_size || 'default'}`;
+    const existingIndex = cart.findIndex(item => item.cartKey === cartKey);
 
-    let cart = JSON.parse(localStorage.getItem('cart')) || []
+    if (existingIndex !== -1) {
+        cart[existingIndex].quantity += product.quantity || 1;
+    } else {
+        cart.push({ ...product, quantity: product.quantity || 1, cartKey });
+    }
 
-    cart.push({ ...product, quantity: 1 })
-    localStorage.setItem('cart', JSON.stringify(cart))
-
-
-    updateCart()
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCart();
 }
-
 
 
 function updateCart() {
@@ -88,11 +95,11 @@ function updateCart() {
 
     const cart = JSON.parse(localStorage.getItem('cart')) || []
 
-
     var total_Price = 0
     var total_count = 0
     const currencySymbol = localStorage.getItem('currency') === 'USD' ? '$' : 'EGP';
 
+    if (!cartItemsContainer) return;
     cartItemsContainer.innerHTML = "";
     cart.forEach((item, index) => {
 
@@ -105,21 +112,19 @@ function updateCart() {
         cartItemsContainer.innerHTML += `
         
             <div class="item_cart">
-                <img src="${item.img}" alt="">
+                <img src="${item.thumbnail}" alt="">
                 <div class="content">
                     <h4>${item.name}</h4>
                     <p class="price_cart">${currencySymbol} ${total_Price_item}</p>
                     <div class="quantity_control">
                         <button class="decrease_quantity" data-index=${index}>-</button>
                         <span class="quantity">${item.quantity}</span>
-                        <button class="Increase_quantity" data-index=${index}>+</button>
+                        <button class="increase_quantity" data-index=${index}>+</button>
                     </div>
                 </div>
 
-                <button class="delete_item" data-inex="${index}" ><i class="fa-solid fa-trash-can"></i></button>
+                <button class="delete_item" data-index="${index}" ><i class="fa-solid fa-trash-can"></i></button>
             </div>
-
-
         `
     })
 
@@ -137,7 +142,7 @@ function updateCart() {
     count_item_header.innerHTML = total_count
 
 
-    const increaseButtons = document.querySelectorAll(".Increase_quantity")
+    const increaseButtons = document.querySelectorAll(".increase_quantity")
     const decreaseButtons = document.querySelectorAll(".decrease_quantity")
 
     increaseButtons.forEach(button => {
@@ -161,7 +166,7 @@ function updateCart() {
 
     delteButtons.forEach(button => {
         button.addEventListener('click', (event) => {
-            const itemIndex = event.target.closest('button').getAttribute('data-inex')
+            const itemIndex = event.target.closest('button').getAttribute('data-index')
             removeFromCart(itemIndex)
         })
     })
@@ -188,9 +193,6 @@ function decreaseQuantity(index) {
 }
 
 
-
-
-
 function removeFromCart(index) {
     const cart = JSON.parse(localStorage.getItem('cart')) || []
 
@@ -199,7 +201,6 @@ function removeFromCart(index) {
     updateCart()
     updateButoonsState(removeProduct.id)
 }
-
 
 function updateButoonsState(productId) {
     const allMatchingButtons = document.querySelectorAll(`.btn_add_cart[data-id="${productId}"]`)
