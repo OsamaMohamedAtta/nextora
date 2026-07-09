@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions | Nextora</title>
+
+    <link rel="icon" href="img/icon.png">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <style>
+        :root {
+            --primary-orange: #FF8F00;
+            --dark-orange: #E65100;
+            --light-orange: #FFF3E0;
+            --amazon-dark: #131921;
+            --amazon-nav: #232F3E;
+            --text-dark: #111111;
+            --text-gray: #565959;
+            --bg-white: #FFFFFF;
+            --bg-light: #F7F7F7;
+            --border-color: #DDD;
+            --success-green: #067D62;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 0px;
+            /* Space for mobile sticky footer */
+            padding-top: 0px;
+        }
+
+        /* Top Announcement */
+        .announcement-bar {
+            background: linear-gradient(90deg, var(--dark-orange), var(--primary-orange));
+            color: white;
+            text-align: center;
+            padding: 8px 15px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .announcement-bar span {
+            color: white;
+        }
+
+        /* Header / Navbar */
+        header {
+            background-color: var(--bg-white);
+            border-bottom: 2px solid var(--primary-orange);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--amazon-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--primary-orange);
+        }
+
+        .trust-badges-top {
+            display: flex;
+            gap: 20px;
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .trust-item i {
+            color: var(--primary-orange);
+        }
+
+        /* Trast track style */
+        .free-return {
+            display: none;
+            width: 100%;
+            overflow: hidden;
+            background: #f8f8f8;
+            padding: 12px 0;
+        }
+
+        .trust-track {
+            display: flex !important;
+            width: max-content;
+            gap: 50px;
+            animation: scroll 10s linear infinite;
+        }
+
+        .trust-track .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            font-size: 15px;
+        }
+
+        @keyframes scroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .trust-track:hover {
+            animation-play-state: paused;
+        }
+
+        @media (max-width: 1024px) {
+            .product-hero {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .trust-badges-top {
+                display: none;
+            }
+
+            .free-return {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body
+    style="margin:0;box-sizing:border-box;font-family:Tahoma,Arial,sans-serif;background:#f4f7fb;color:#333;line-height:2;">
+
+
+    <div class="announcement-bar">
+        <span>Limited Time Offer: Get 28% Off + Fast Direct Shipping To Your Doorstep!</span>
+    </div>
+
+    <a href="tel:+201069036495" class="floating-call" title="Contact Us">
+        <i class="fa-solid fa-headset icon"></i>
+        <span class="text">Contact Us</span>
+    </a>
+
+    <div class="cart">
+        <div class="top_cart">
+            <h3>Cart Items : <span class="Count_item_cart">0</span></h3>
+            <span onclick="open_close_cart()" class="close_cart"><i class="fa-regular fa-circle-xmark"></i></span>
+        </div>
+
+
+        <div class="items_in_cart" id="cart_items">
+
+        </div>
+
+        <div class="bottom_cart">
+            <div class="total">
+                <p>subtotal</p>
+                <p class="price_cart_toral">$0</p>
+            </div>
+
+            <div class="button_cart">
+                <a href="#" class="btn_cart btn">Checkout</a>
+                <span onclick="open_close_cart()" class="btn_cart trans_bg btn">Shop More</span>
+            </div>
+        </div>
+
+    </div>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo"> <img src="img/logo.png" alt=""></a>
+            <div class="trust-badges-top">
+                <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> 100% Original Product</div>
+                <div class="trust-item"><i class="fa-solid fa-truck-fast"></i> Fast Shipping (US & WW)</div>
+                <div class="trust-item"><i class="fa-solid fa-rotate-left"></i> 14-Day Free Returns</div>
+            </div>
+            <div class="header_icons">
+                <div class="icon">
+                    <a href="#">
+                        <i class="fa-regular fa-heart"></i>
+                        <span class="count count_favourite">0</span>
+                    </a>
+                </div>
+
+                <div onclick="open_close_cart()" class="icon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="count count_item_header">0</span>
+                </div>
+
+                <div class="icon">
+                    <button id="currency-toggle" class="currency-btn">USD</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div
+        style="max-width:900px;margin:auto;background:#fff;padding:40px;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,.08);margin-top: 2.7rem;margin-bottom: 2.7rem;">
+
+        <h1 style="color:#ff8716;font-size:34px;margin-bottom:10px;text-align:center;">
+            Terms & Conditions
+        </h1>
+
+        <p style="text-align:center;color:#777;margin-bottom:30px;">
+            Last Updated: July 2026
+        </p>
+
+        <p style="margin-bottom:15px;">
+            Welcome to <strong>Nextora</strong>. By accessing this website or placing an order, you agree to be bound by
+            the following Terms & Conditions. Please read them carefully before using our services.
+        </p>
+
+        <h2 style="margin:25px 0 15px;color:#ff8716;border-left:5px solid #ff8716;padding-left:10px;font-size:22px;">
+            1. Website Usage
+        </h2>
+
+        <p style="margin-bottom:15px;">
+            You may use this website only for lawful and personal purposes. Any activity that may damage the website,
+            interfere with its operation, or violate the rights of others is strictly prohibited.
+        </p>
+
+        <h2 style="margin:25px 0 15px;color:#ff8716;border-left:5px solid #ff8716;padding-left:10px;font-size:22px;">
+            2. Orders
+        </h2>
+
+        <ul style="padding-left:20px;margin-bottom:20px;">
+            <li style="margin-bottom:10px;">All orders are subject to product availability.</li>
+            <li style="margin-bottom:10px;">Nextora reserves the right to reject or cancel any order if incorrect
+                information is provided or fraudulent activity is suspected.</li>
+            <li style="margin-bottom:10px;">Customers are responsible for providing accurate shipping information.</li>
+        </ul>
+
+        <h2 style="margin:25px 0 15px;color:#ff8716;border-left:5px solid #ff8716;padding-left:10px;font-size:22px;">
+            3. Pricing & Payment
+        </h2>
+
+        <p style="margin-bottom:15px;">
+            All prices displayed on the website are subject to change without prior notice. The final price is confirmed
+            at the time of payment.
+        </p>
+
+        <h2 style="margin:25px 0 15px;color:#ff8716;border-left:5px solid #ff8716;padding-left:10px;font-size:22px;">
+            4. Shipping & Delivery
+        </h2>
+
+        <ul style="padding-left:20px;margin-bottom:20px;">
+            <li style="margin-bottom:10px;">Delivery times vary depending on the shipping carrier and destination
+                country.</li>
+            <li style="margin-bottom:10px;">Delays beyond our control may occur due to customs, weather conditions, or
+                shipping providers.</li>
+            <li style="margin-bottom:10px;">Tracking information will be provided when available.</li>
+        </ul>
+
+        <h2 style="margin:25px 0 15px;color:#ff8716;border-left:5px solid #ff8716;padding-left:10px;font-size:22px;">
+            5. Products
+        </h2>
+
+        <p style="margin-bottom:15px;">
+            We strive to display accurate product images and descriptions. However, slight variations in color,
+            packaging, or appearance may occur due to manufacturer updates.
+        </p>
+
+        <h2 style="margin:25px 0 15px;color:#ff8716;border-left:5px solid #ff8716;padding-left:10px;font-size:22px;">
+            6. Return Policy
+        </h2>
+
+        <p style="margin-bottom:15px;">
+            All orders are subject to the Return & Refund Policy published on our website. That policy forms an integral
+            part of these Terms & Conditions.
+        </p>
+
+        <h2 style="margin:25px 0 15px;color:#ff8716;border-left:5px solid #ff8716;padding-left:10px;font-size:22px;">
+            7. Intellectual Property
+        </h2>
+
+        <p style="margin-bottom:15px;">
+            All website content, including text, images, logos, graphics, and designs, is the property of Nextora and
+            may not be copied, reproduced, distributed, or used without prior written permission.
+        </p>
+
+        <h2 style="margin:25px 0 15px;color:#ff8716;border-left:5px solid #ff8716;padding-left:10px;font-size:22px;">
+            8. Limitation of Liability
+        </h2>
+
+        <p style="margin-bottom:15px;">
+            Nextora shall not be liable for any indirect, incidental, or consequential damages resulting from the use of
+            this website, shipping delays, or misuse of purchased products.
+        </p>
+
+        <h2 style="margin:25px 0 15px;color:#ff8716;border-left:5px solid #ff8716;padding-left:10px;font-size:22px;">
+            9. Privacy
+        </h2>
+
+        <p style="margin-bottom:15px;">
+            We are committed to protecting your personal information. Customer data is used solely to process orders and
+            improve your shopping experience in accordance with our Privacy Policy.
+        </p>
+
+        <h2 style="margin:25px 0 15px;color:#ff8716;border-left:5px solid #ff8716;padding-left:10px;font-size:22px;">
+            10. Changes to These Terms
+        </h2>
+
+        <p style="margin-bottom:15px;">
+            Nextora reserves the right to modify these Terms & Conditions at any time. Any updates become effective
+            immediately upon publication on this website.
+        </p>
+
+        <div style="background:#f9f1ee;padding:18px;border-radius:10px;border-left:5px solid #ff8716;margin-top:25px;">
+            <strong>Your Agreement:</strong><br>
+            By using this website or placing an order, you acknowledge that you have read, understood, and agreed to
+            these Terms & Conditions in full.
+        </div>
+
+        <h2 style="margin:25px 0 15px;color:#ff8716;border-left:5px solid #ff8716;padding-left:10px;font-size:22px;">
+            Contact Us
+        </h2>
+
+        <p style="margin-bottom:15px;">
+            If you have any questions regarding these Terms & Conditions, please contact us through the <strong>Contact
+                Us</strong> page on the Nextora website.
+        </p>
+
+        <div style="margin-top:35px;text-align:center;color:#888;font-size:14px;">
+            © 2026 Nextora. All Rights Reserved.
+        </div>
+
+    </div>
+
+    <footer id="Contact">
+        <div class="container">
+
+            <div class="big_row">
+                <img class="logo_footer" src="img/white_logo.png" alt="">
+
+                <p>Be the first to know about our latest products and exclusive offers!</p>
+
+                <div class="icons_footer">
+                    <a href="tel:+201069036495"><i class="fa-solid fa-phone"></i></a>
+                    <a href="https://www.facebook.com/share/1JYYTaqy3C/" target="_blank"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://wa.me/201069036495" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="row">
+                <h4>Find It Fast</h4>
+
+                <div class="links">
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Health & Beauty</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Skin Care</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Body Care</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Appliances</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Face Skin Care</a>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <h4>Quick Links</h4>
+
+                <div class="links">
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Your Account </a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Returns & Exchanges</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Shipping & Delivery</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Estimated Delivery Time</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Purchase Hisotry</a>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <h4>Service us</h4>
+
+                <div class="links">
+                    <a href="refund.html"><i class="fa-solid fa-caret-right"></i> Refund Policy</a>
+                    <a href="terms.html"><i class="fa-solid fa-caret-right"></i> Term & Conditions</a>
+                    <a href="privacy.html"><i class="fa-solid fa-caret-right"></i> Privacy Policy</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Help</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> FAQS</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom_footer">
+            <div class="container">
+                <p>&copy; <span>Nextora Store.</span> All Rights Reserved.</p>
+
+                <div class="payment_img">
+                    <img src="img/payment_method.png" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Privacy Policy | Nextora</title>
+
+    <link rel="icon" href="img/icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <style>
+        :root {
+            --primary-orange: #FF8F00;
+            --dark-orange: #E65100;
+            --light-orange: #FFF3E0;
+            --amazon-dark: #131921;
+            --amazon-nav: #232F3E;
+            --text-dark: #111111;
+            --text-gray: #565959;
+            --bg-white: #FFFFFF;
+            --bg-light: #F7F7F7;
+            --border-color: #DDD;
+            --success-green: #067D62;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 0px;
+            /* Space for mobile sticky footer */
+            padding-top: 0px;
+        }
+
+        /* Top Announcement */
+        .announcement-bar {
+            background: linear-gradient(90deg, var(--dark-orange), var(--primary-orange));
+            color: white;
+            text-align: center;
+            padding: 8px 15px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .announcement-bar span {
+            color: white;
+        }
+
+        /* Header / Navbar */
+        header {
+            background-color: var(--bg-white);
+            border-bottom: 2px solid var(--primary-orange);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--amazon-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--primary-orange);
+        }
+
+        .trust-badges-top {
+            display: flex;
+            gap: 20px;
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .trust-item i {
+            color: var(--primary-orange);
+        }
+
+        /* Trast track style */
+        .free-return {
+            display: none;
+            width: 100%;
+            overflow: hidden;
+            background: #f8f8f8;
+            padding: 12px 0;
+        }
+
+        .trust-track {
+            display: flex !important;
+            width: max-content;
+            gap: 50px;
+            animation: scroll 10s linear infinite;
+        }
+
+        .trust-track .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            font-size: 15px;
+        }
+
+        @keyframes scroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .trust-track:hover {
+            animation-play-state: paused;
+        }
+
+        @media (max-width: 1024px) {
+            .product-hero {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .trust-badges-top {
+                display: none;
+            }
+
+            .free-return {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body
+    style="margin:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;background:#f5f7fb;color:#333;line-height:1.8;">
+
+    <a href="tel:+201069036495" class="floating-call" title="Contact Us">
+        <i class="fa-solid fa-headset icon"></i>
+        <span class="text">Contact Us</span>
+    </a>
+
+    <div class="announcement-bar">
+        <span>Limited Time Offer: Get 28% Off + Fast Direct Shipping To Your Doorstep!</span>
+    </div>
+
+    <div class="cart">
+        <div class="top_cart">
+            <h3>Cart Items : <span class="Count_item_cart">0</span></h3>
+            <span onclick="open_close_cart()" class="close_cart"><i class="fa-regular fa-circle-xmark"></i></span>
+        </div>
+
+
+        <div class="items_in_cart" id="cart_items">
+
+        </div>
+
+        <div class="bottom_cart">
+            <div class="total">
+                <p>subtotal</p>
+                <p class="price_cart_toral">$0</p>
+            </div>
+
+            <div class="button_cart">
+                <a href="#" class="btn_cart btn">Checkout</a>
+                <span onclick="open_close_cart()" class="btn_cart trans_bg btn">Shop More</span>
+            </div>
+        </div>
+
+    </div>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo"> <img src="img/logo.png" alt=""></a>
+            <div class="trust-badges-top">
+                <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> 100% Original Product</div>
+                <div class="trust-item"><i class="fa-solid fa-truck-fast"></i> Fast Shipping (US & WW)</div>
+                <div class="trust-item"><i class="fa-solid fa-rotate-left"></i> 14-Day Free Returns</div>
+            </div>
+            <div class="header_icons">
+                <div class="icon">
+                    <a href="#">
+                        <i class="fa-regular fa-heart"></i>
+                        <span class="count count_favourite">0</span>
+                    </a>
+                </div>
+
+                <div onclick="open_close_cart()" class="icon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="count count_item_header">0</span>
+                </div>
+
+                <div class="icon">
+                    <button id="currency-toggle" class="currency-btn">USD</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div
+        style="max-width:900px;margin:auto;background:#fff;padding:40px;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,.08);margin-top: 2.7rem;margin-bottom: 2.7rem;">
+
+        <h1 style="color:#ff8716;margin-bottom:10px;font-size:36px;">
+            Privacy Policy
+        </h1>
+
+        <p style="color:#888;margin-bottom:30px;">
+            Last Updated: July 2026
+        </p>
+
+        <p style="margin-bottom:15px;">
+            At <strong>Nextora</strong>, we value your privacy and are committed to protecting your personal
+            information. This Privacy Policy explains how we collect, use, store, and safeguard your data when you visit
+            our website or place an order.
+        </p>
+
+        <h2
+            style="margin-top:30px;margin-bottom:15px;color:#1f2937;font-size:24px;border-left:5px solid #ff8716;padding-left:12px;">
+            Information We Collect
+        </h2>
+
+        <ul style="margin-left:20px;margin-bottom:20px;">
+            <li style="margin-bottom:10px;">Your name.</li>
+            <li style="margin-bottom:10px;">Email address.</li>
+            <li style="margin-bottom:10px;">Phone number.</li>
+            <li style="margin-bottom:10px;">Shipping and billing address.</li>
+            <li style="margin-bottom:10px;">Order and payment information (payment details are processed securely by our
+                payment providers).</li>
+            <li style="margin-bottom:10px;">Technical information such as IP address, browser type, and device
+                information.</li>
+        </ul>
+
+        <h2
+            style="margin-top:30px;margin-bottom:15px;color:#1f2937;font-size:24px;border-left:5px solid #ff8716;padding-left:12px;">
+            How We Use Your Information
+        </h2>
+
+        <ul style="margin-left:20px;margin-bottom:20px;">
+            <li style="margin-bottom:10px;">To process and deliver your orders.</li>
+            <li style="margin-bottom:10px;">To provide customer support.</li>
+            <li style="margin-bottom:10px;">To improve our website and services.</li>
+            <li style="margin-bottom:10px;">To send order confirmations and shipping updates.</li>
+            <li style="margin-bottom:10px;">To detect fraud and maintain website security.</li>
+        </ul>
+
+        <h2
+            style="margin-top:30px;margin-bottom:15px;color:#1f2937;font-size:24px;border-left:5px solid #ff8716;padding-left:12px;">
+            Sharing Your Information
+        </h2>
+
+        <p style="margin-bottom:15px;">
+            We do not sell or rent your personal information. Your data may only be shared with trusted third-party
+            service providers, such as payment processors and shipping companies, when necessary to complete your order
+            or comply with legal obligations.
+        </p>
+
+        <h2
+            style="margin-top:30px;margin-bottom:15px;color:#1f2937;font-size:24px;border-left:5px solid #ff8716;padding-left:12px;">
+            Cookies
+        </h2>
+
+        <p style="margin-bottom:15px;">
+            Our website may use cookies and similar technologies to improve your browsing experience, remember your
+            preferences, and analyze website performance.
+        </p>
+
+        <h2
+            style="margin-top:30px;margin-bottom:15px;color:#1f2937;font-size:24px;border-left:5px solid #ff8716;padding-left:12px;">
+            Data Security
+        </h2>
+
+        <p style="margin-bottom:15px;">
+            We implement reasonable technical and organizational measures to protect your personal information against
+            unauthorized access, disclosure, alteration, or destruction.
+        </p>
+
+        <h2
+            style="margin-top:30px;margin-bottom:15px;color:#1f2937;font-size:24px;border-left:5px solid #ff8716;padding-left:12px;">
+            Your Rights
+        </h2>
+
+        <ul style="margin-left:20px;margin-bottom:20px;">
+            <li style="margin-bottom:10px;">Request access to your personal information.</li>
+            <li style="margin-bottom:10px;">Request corrections to inaccurate information.</li>
+            <li style="margin-bottom:10px;">Request deletion of your data where permitted by law.</li>
+            <li style="margin-bottom:10px;">Contact us regarding any privacy concerns.</li>
+        </ul>
+
+        <h2
+            style="margin-top:30px;margin-bottom:15px;color:#1f2937;font-size:24px;border-left:5px solid #ff8716;padding-left:12px;">
+            Third-Party Services
+        </h2>
+
+        <p style="margin-bottom:15px;">
+            Our website may contain links to third-party websites or services. We are not responsible for the privacy
+            practices or content of those external websites.
+        </p>
+
+        <h2
+            style="margin-top:30px;margin-bottom:15px;color:#1f2937;font-size:24px;border-left:5px solid #ff8716;padding-left:12px;">
+            Changes to This Policy
+        </h2>
+
+        <p style="margin-bottom:15px;">
+            We may update this Privacy Policy from time to time. Any changes will become effective immediately after
+            they are published on this page.
+        </p>
+
+        <div style="background:#f9f1ee;border-left:5px solid #ff8716;padding:18px;margin-top:25px;border-radius:8px;">
+
+            <strong>Your Privacy Matters:</strong><br>
+
+            By using the Nextora website, you agree to the collection and use of your information as described in this
+            Privacy Policy.
+
+        </div>
+
+        <h2
+            style="margin-top:30px;margin-bottom:15px;color:#1f2937;font-size:24px;border-left:5px solid #ff8716;padding-left:12px;">
+            Contact Us
+        </h2>
+
+        <p style="margin-bottom:15px;">
+            If you have any questions about this Privacy Policy or how we handle your personal information, please
+            contact us through our <strong>Contact Us</strong> page.
+        </p>
+
+        <div style="margin-top:40px;text-align:center;color:#777;font-size:14px;">
+
+            © 2026 Nextora. All Rights Reserved.
+
+        </div>
+
+    </div>
+
+    <footer id="Contact">
+        <div class="container">
+
+            <div class="big_row">
+                <img class="logo_footer" src="img/white_logo.png" alt="">
+
+                <p>Be the first to know about our latest products and exclusive offers!</p>
+
+                <div class="icons_footer">
+                    <a href="tel:+201069036495"><i class="fa-solid fa-phone"></i></a>
+                    <a href="https://www.facebook.com/share/1JYYTaqy3C/" target="_blank"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://wa.me/201069036495" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="row">
+                <h4>Find It Fast</h4>
+
+                <div class="links">
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Health & Beauty</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Skin Care</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Body Care</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Appliances</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Face Skin Care</a>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <h4>Quick Links</h4>
+
+                <div class="links">
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Your Account </a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Returns & Exchanges</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Shipping & Delivery</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Estimated Delivery Time</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Purchase Hisotry</a>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <h4>Service us</h4>
+
+                <div class="links">
+                    <a href="refund.html"><i class="fa-solid fa-caret-right"></i> Refund Policy</a>
+                    <a href="terms.html"><i class="fa-solid fa-caret-right"></i> Term & Conditions</a>
+                    <a href="privacy.html"><i class="fa-solid fa-caret-right"></i> Privacy Policy</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Help</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> FAQS</a>i
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom_footer">
+            <div class="container">
+                <p>&copy; <span>Nextora Store.</span> All Rights Reserved.</p>
+
+                <div class="payment_img">
+                    <img src="img/payment_method.png" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

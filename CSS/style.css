@@ -1406,3 +1406,85 @@ footer .bottom_footer .payment_img {
         padding-top: 165px;
     }
 }
+
+/* Floating css */
+.floating-call{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:60px;
+    height:60px;
+    background:#ff8716;
+    color:#fff;
+    border-radius:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    overflow:hidden;
+    transition:.35s;
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+    z-index:9999;
+}
+
+.floating-call .icon{
+    font-size:28px;
+    flex-shrink:0;
+    color: #fff;
+}
+
+.floating-call .text{
+    white-space:nowrap;
+    max-width:0;
+    opacity:0;
+    transition:.35s;
+    margin-left:0;
+    font-weight:600;
+}
+
+.floating-call:hover{
+    width:180px;
+    justify-content:flex-start;
+    padding:0 22px;
+}
+
+.floating-call:hover .text{
+    max-width:120px;
+    opacity:1;
+    margin-left:12px;
+}
+
+.floating-call:hover .icon{
+    animation:ring .6s ease-in-out infinite alternate;
+}
+
+.floating-call span{
+    color: #fff;
+}
+
+@keyframes ring{
+    from{
+        transform:rotate(-15deg);
+    }
+    to{
+        transform:rotate(15deg);
+    }
+}
+
+@media(max-width:768px){
+    .floating-call{
+        width:55px;
+        height:55px;
+        right:18px;
+        bottom:18px;
+    }
+
+    .floating-call:hover{
+        width:55px;
+        padding:0;
+    }
+
+    .floating-call .text{
+        display:none;
+    }
+}

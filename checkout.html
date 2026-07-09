@@ -166,10 +166,41 @@
 </head>
 
 <body>
+    <!-- PAYPAL TESTING -->
+    <div id="paypal-button-container"></div>
+
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&components=card-fields"></script>
+
+    <script>
+        paypal.Buttons({
+            createOrder: function (data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '10.00' // Replace with the actual amount
+                        }
+                    }]
+                });
+            },
+            onApprove: function (data, actions) {
+                return actions.order.capture().then(function (details) {
+                    alert('Transaction completed by ' + details.payer.name.given_name);
+                });
+            }
+        }).render('#paypal-button-container');
+    </script>
+
+    <!-- PAYPAL TESTING -->
+
 
     <div class="announcement-bar">
         <span>Limited Time Offer: Get 28% Off + Fast Direct Shipping To Your Doorstep!</span>
     </div>
+
+    <a href="tel:+201069036495" class="floating-call" title="Contact Us">
+        <i class="fa-solid fa-headset icon"></i>
+        <span class="text">Contact Us</span>
+    </a>
 
     <div class="cart">
         <div class="top_cart">
@@ -217,7 +248,7 @@
                     <span class="count count_item_header">0</span>
                 </div>
 
-                 <div class="icon">
+                <div class="icon">
                     <button id="currency-toggle" class="currency-btn">USD</button>
                 </div>
             </div>
@@ -350,9 +381,9 @@
                 <h4>Service us</h4>
 
                 <div class="links">
-                    <a href="#"><i class="fa-solid fa-caret-right"></i> Support Center</a>
-                    <a href="#"><i class="fa-solid fa-caret-right"></i> Term & Conditions</a>
-                    <a href="#"><i class="fa-solid fa-caret-right"></i> Privacy Policy</a>
+                    <a href="refund.html"><i class="fa-solid fa-caret-right"></i> Refund Policy</a>
+                    <a href="terms.html"><i class="fa-solid fa-caret-right"></i> Term & Conditions</a>
+                    <a href="privacy.html"><i class="fa-solid fa-caret-right"></i> Privacy Policy</a>
                     <a href="#"><i class="fa-solid fa-caret-right"></i> Help</a>
                     <a href="#"><i class="fa-solid fa-caret-right"></i> FAQS</a>
                 </div>
@@ -369,8 +400,6 @@
             </div>
         </div>
     </footer>
-
-
 
 
     <script src="JS/main.js"></script>
