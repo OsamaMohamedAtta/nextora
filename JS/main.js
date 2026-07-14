@@ -18,24 +18,24 @@ function open_Menu() {
 
 let currency_select = localStorage.getItem("currency");
 if (!currency_select) {
-    localStorage.setItem("currency", "EGP")
+    localStorage.setItem("currency", "USD")
 }
 
-const currencyBtn = document.getElementById("currency-toggle");
+// const currencyBtn = document.getElementById("currency-toggle");
 
-currencyBtn.textContent = currency_select == "USD" ? "EGP" : "USD";
+// currencyBtn.textContent = currency_select == "USD" ? "EGP" : "USD";
 
-currencyBtn.addEventListener("click", () => {
-    if (currency_select === "USD") {
-        currency_select = "EGP";
-    } else {
-        currency_select = "USD";
-    }
+// currencyBtn.addEventListener("click", () => {
+//     if (currency_select === "USD") {
+//         currency_select = "EGP";
+//     } else {
+//         currency_select = "USD";
+//     }
 
-    localStorage.setItem("currency", currency_select);
-    currencyBtn.textContent = currency_select == "USD" ? "EGP" : "USD";
-    window.location.reload();
-});
+//     localStorage.setItem("currency", currency_select);
+//     currencyBtn.textContent = currency_select == "USD" ? "EGP" : "USD";
+//     window.location.reload();
+// });
 
 
 fetch('products.json')

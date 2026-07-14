@@ -166,41 +166,14 @@
 </head>
 
 <body>
-    <!-- PAYPAL TESTING -->
-    <div id="paypal-button-container"></div>
-
-    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&components=card-fields"></script>
-
-    <script>
-        paypal.Buttons({
-            createOrder: function (data, actions) {
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: '10.00' // Replace with the actual amount
-                        }
-                    }]
-                });
-            },
-            onApprove: function (data, actions) {
-                return actions.order.capture().then(function (details) {
-                    alert('Transaction completed by ' + details.payer.name.given_name);
-                });
-            }
-        }).render('#paypal-button-container');
-    </script>
-
-    <!-- PAYPAL TESTING -->
-
-
     <div class="announcement-bar">
         <span>Limited Time Offer: Get 28% Off + Fast Direct Shipping To Your Doorstep!</span>
     </div>
 
-    <a href="tel:+201069036495" class="floating-call" title="Contact Us">
+    <!-- <a href="tel:+201069036495" class="floating-call" title="Contact Us">
         <i class="fa-solid fa-headset icon"></i>
         <span class="text">Contact Us</span>
-    </a>
+    </a> -->
 
     <div class="cart">
         <div class="top_cart">
@@ -248,9 +221,9 @@
                     <span class="count count_item_header">0</span>
                 </div>
 
-                <div class="icon">
+                <!-- <div class="icon">
                     <button id="currency-toggle" class="currency-btn">USD</button>
-                </div>
+                </div> -->
             </div>
         </div>
     </header>
@@ -274,7 +247,6 @@
                     </div>
 
 
-
                     <div class="bottom_summary">
                         <div class="shop_table">
                             <p>Subtotal :</p>
@@ -288,7 +260,6 @@
                         </div>
 
 
-
                         <div class="shop_table">
                             <p>total :</p>
                             <span class="total_checkout">0.00</span>
@@ -296,6 +267,10 @@
 
                     </div>
 
+                    <!-- PAYPAL BUTTON -->
+                    <div id="paypal-button-container"></div>
+                    <!-- <paypal-button hidden></paypal-button> -->
+                    <!-- PAYPAL BUTTON -->
                 </div>
 
                 <div class="input_info">
@@ -304,7 +279,7 @@
             </div>
         </form>
 
-        <form class="section" id="checkoutForm">
+        <!-- <form class="section" id="checkoutForm">
             <div class="container">
                 <div class="ordersummary">
                     <h1>Order Details</h1>
@@ -318,7 +293,6 @@
                         <input type="text" name="postal_code" placeholder="Postal Code" required>
                     </div>
 
-
                     <div>
                         <div class="button_div">
                             <button type="submit" id="placeOrderBtn">Place order</button>
@@ -331,11 +305,11 @@
 
                 </div>
             </div>
-        </form>
+        </form> -->
     </section>
 
 
-     <footer id="Contact">
+    <footer id="Contact">
         <div class="container">
 
             <div class="big_row">
@@ -397,9 +371,14 @@
         </div>
     </footer>
 
+    <!-- PAYPAL LINK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AbC_0dYmDUtCv0BfQ720YOUYBPGid3MRtrSYCd3Y1UDS-yQT1NvgjtbrIhAFIonnYsjN4lqy99LXS5pS&currency=USD"></script>
+
+    <!-- <script src="https://www.sandbox.paypal.com/web-sdk/v6/core"></script> -->
 
     <script src="JS/main.js"></script>
     <script>
+        let totalAmount = 0;
         function fetchCard() {
             const cartItemsContainer = document.getElementById("items")
 
@@ -450,16 +429,17 @@
 
             const shipping = document.querySelector('.shipping')
 
-            shipping.innerHTML = `${currencySymbol} 20.00`
+            shipping.innerHTML = `Free Shipping`
 
             subtotal_checkout.innerHTML = `${currencySymbol} ${total_Price}`
 
-            price_cart_total.innerHTML = `${currencySymbol} ${total_Price + 20}`
+            price_cart_total.innerHTML = `${currencySymbol} ${total_Price}`
 
             count_item_cart.innerHTML = total_count;
 
             count_item_header.innerHTML = total_count;
 
+            totalAmount = total_Price;
 
             const increaseButtons = document.querySelectorAll(".increase_quantity")
             const decreaseButtons = document.querySelectorAll(".decrease_quantity")
@@ -490,30 +470,77 @@
         }
         fetchCard();
 
-        const form = document.getElementById("checkoutForm");
-        const button = document.getElementById("placeOrderBtn");
+        let products = JSON.parse(localStorage.getItem('cart')) || [];
 
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
+        if (products.length != 0) {
+            const items = products.map(product => ({
+                name: product.name,
+                sku: product.cartKey,
+                quantity: String(product.quantity),
+                unit_amount: {
+                    currency_code: "USD",
+                    value: product.price.toFixed(2)
+                }
+            }));
 
-            button.disabled = true;
-            button.innerText = "Processing...";
+            // PAYPAL LIVE
+            paypal.Buttons({
+                createOrder: function (data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                currency_code: "USD",
+                                value: totalAmount.toFixed(2),
+                                breakdown: {
+                                    item_total: {
+                                        currency_code: "USD",
+                                        value: totalAmount.toFixed(2)
+                                    }
+                                }
+                            },
 
-            const cart = JSON.parse(localStorage.getItem("cart")) || [];
-            if (cart.length === 0) {
-                alert("Your cart is empty. Please add items to your cart before placing an order.");
-                button.disabled = false;
-                button.innerText = "Place order";
-                return;
-            }
+                            items: items
+                        }]
+                    });
+                },
+                onError(err) {
+                    console.log(err);
+                },
+                onApprove: function (data, actions) {
+                    return actions.order.capture().then(function (details) {
+                        console.log(details);
+                        alert('Transaction completed by ' + details.payer.name.given_name);
+                    });
+                }
+            }).render('#paypal-button-container');
+            // PAYPAL LIVE
+        }
 
-            setTimeout(() => {
-                form.reset();
-                localStorage.removeItem("cart");
-                alert("Thank you for your order!\n\nYour order has been successfully submitted. A member of our sales team will contact you within 24 hours.");
-                window.location.href = "index.html";
-            }, 3500);
-        });
+
+        // const form = document.getElementById("checkoutForm");
+        // const button = document.getElementById("placeOrderBtn");
+
+        // form.addEventListener("submit", function (e) {
+        //     e.preventDefault();
+
+        //     button.disabled = true;
+        //     button.innerText = "Processing...";
+
+        //     const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        //     if (cart.length === 0) {
+        //         alert("Your cart is empty. Please add items to your cart before placing an order.");
+        //         button.disabled = false;
+        //         button.innerText = "Place order";
+        //         return;
+        //     }
+
+        //     setTimeout(() => {
+        //         form.reset();
+        //         localStorage.removeItem("cart");
+        //         alert("Thank you for your order!\n\nYour order has been successfully submitted. A member of our sales team will contact you within 24 hours.");
+        //         window.location.href = "index.html";
+        //     }, 3500);
+        // });
     </script>
 </body>
 

@@ -115,7 +115,7 @@ header .top_header .container {
 }
 
 header .logo {
-    width: 180px;
+    width: 120px;
 }
 
 header .top_header .search_box {
@@ -679,7 +679,7 @@ footer .container .big_row {
 }
 
 footer .container .big_row .logo_footer {
-    width: 180px;
+    width: 120px;
 }
 
 footer .container .big_row p {
@@ -957,7 +957,7 @@ footer .bottom_footer .payment_img {
     }
 
     header .top_header .logo {
-        width: 140px;
+        width: 120px;
     }
 
     header .top_header .search_box select {
