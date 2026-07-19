@@ -6,9 +6,9 @@
     "SKU": "CJPF159855501AZ",
     "Lists": "550",
     "price": 500,
-    "price_usd": 2,
+    "price_usd": 25,
     "old_price": 650,
-    "old_price_usd": 10,
+    "old_price_usd": 45,
     "shipping_cost": "$3.00",
     "ship_to": "US",
     "size": [
@@ -217,6 +217,113 @@
     ],
     "videos": [
       "https://cf.cjdropshipping.com/quick/product/27a14b64-89c1-433b-8b5b-361ebad9633d.jpg?x-oss-process=image/format,webp,image/resize,m_fill,m_pad,w_800,h_800"
+    ]
+  },
+  {
+    "id": "FLNWEP029AZ",
+    "name": "2 In 1 Hair Remover Women",
+    "landing_page_name": "2 In 1 Hair Remover Women's Double Head Shaver Private Pubic Hair Trimmer Electric Razor Wet Dry Electric Body Hair",
+    "SKU": "CJYD207070005EV",
+    "Lists": "2176",
+    "price": 1200,
+    "price_usd": 30,
+    "old_price": 1400,
+    "old_price_usd": 40,
+    "shipping_cost": "Free Shipping",
+    "ship_to": "US",
+    "size": [
+      {
+        "Purple": 30
+      },
+      {
+        "Blue": 30
+      },
+      {
+        "Black": 30
+      },
+      {
+        "Purple 2pcs": 50
+      },
+      {
+        "Blue 2pcs": 50
+      },
+      {
+        "Black 2pcs": 50
+      },
+      {
+        "Purple 3pcs": 70
+      },
+      {
+        "Blue 3pcs": 70
+      },
+      {
+        "Black 3pcs": 70
+      }
+    ],
+    "category": "Home, Garden & Furniture",
+    "product_type": "Home Storage",
+    "product_description": "1. Comfortable and Safe Shaving: Designed for a painless grooming experience, this bikini trimmer provides safe trimming without cuts or irritation, ensuring a smooth and comfortable shave every time.\n2. Versatile Grooming Solution: Suitable for legs, arms, underarms, and bikini areas, this body shaver easily adapts to both flat and curved surfaces for a perfectly smooth appearance.\n3. Precision and Smoothness: Equipped with a circular rotating blade, this hair trimmer captures even the finest and shortest hairs, delivering a close shave with smooth, stubble-free results.\n4. Easy Cleaning and Hygiene: Featuring a detachable shaving head, the electric razor can be rinsed under water for quick cleaning and effortless maintenance after every use.\n5. Compact and Travel-Ready: Lightweight and portable design makes this pubic hair trimmer perfect for travel and everyday grooming, allowing you to enjoy smooth skin anytime and anywhere.",
+    "product_information": "Power type: USB, Working method: pogonotomy, Cleaning type: fully washable, Power mode: Electric",
+    "thumbnail": "https://oss-cf.cjdropshipping.com/product/2024/06/28/06/e7ba00de-236f-4d67-8960-ad79f83087c5_trans.jpeg?x-oss-process=image/format,webp,image/resize,m_fill,m_pad,w_800,h_800",
+    "gallery": [
+      "https://oss-cf.cjdropshipping.com/product/2024/06/28/06/e7ba00de-236f-4d67-8960-ad79f83087c5_trans.jpeg?x-oss-process=image/format,webp,image/resize,m_fill,m_pad,w_800,h_800",
+      "https://oss-cf.cjdropshipping.com/product/2024/06/28/06/81fb083e-ed03-4a6c-8c34-28f157e90e84_trans.jpeg?x-oss-process=image/format,webp,image/resize,m_fill,m_pad,w_800,h_800",
+      "https://oss-cf.cjdropshipping.com/product/2025/03/01/01/60f2b438-b5e7-4211-89da-4a2803873a4c.jpg?x-oss-process=image/format,webp,image/resize,m_fill,m_pad,w_800,h_800",
+      "https://oss-cf.cjdropshipping.com/product/2025/03/08/10/cbc2633e-1eee-49ad-ad8d-0cfc09c68ca2.jpg?x-oss-process=image/format,webp,image/resize,m_fill,m_pad,w_800,h_800",
+      "https://oss-cf.cjdropshipping.com/product/2025/08/05/07/3fcc89ee-00dc-4230-ba2b-9a28a7508da7.jpg?x-oss-process=image/format,webp,image/resize,m_fill,m_pad,w_800,h_800",
+      "https://oss-cf.cjdropshipping.com/product/2025/04/07/07/70df7149-e2e7-449f-b012-4588927f3769.jpg?x-oss-process=image/format,webp,image/resize,m_fill,m_pad,w_800,h_800"
+    ],
+    "videos": [
+      "https://video-cf.cjdropshipping.com/b015bffc137871f0808e4531859c0102/a69446d8e0c541d183f7f9d240085c24-874b0671c3658db6f9436259ea461598-ld.mp4"
+    ]
+  },
+  {
+    "id": "FLNCARP029AZ",
+    "name": "Home Handheld Portable Car",
+    "landing_page_name": "Home Handheld Portable Car Vacuum Cleaner Powerful Wireless Mini Vacuum for Car, Home, Office and Travel",
+    "SKU": "CJJT176025001AZ",
+    "Lists": "380",
+    "price": 1200,
+    "price_usd": 28,
+    "old_price": 1400,
+    "old_price_usd": 40,
+    "shipping_cost": "Free Shipping",
+    "ship_to": "US",
+    "size": [
+      {
+        "Green": 28
+      },
+      {
+        "Black": 28
+      },
+      {
+        "Black 2pcs": 50
+      },
+      {
+        "Green 2pcs": 50
+      },
+      {
+        "Black 3pcs": 70
+      },
+      {
+        "Green 3pcs": 70
+      }
+    ],
+    "category": "Home, Garden & Furniture",
+    "product_type": "Home Storage",
+    "product_description": "1. Wireless Portable Vacuum Cleaner: A multi-function cordless vacuum cleaner with powerful suction, designed for cars, homes, and commercial use, providing convenient cleaning anytime and anywhere.\n2. Dual-Power Strong Suction: Equipped with a high-performance motor system that delivers powerful suction to effectively remove dust, dirt, crumbs, and debris from different surfaces.\n3. Long-Lasting Battery Life: Features a large-capacity rechargeable battery that provides extended working time for efficient and uninterrupted cleaning.\n4. Deep Cleaning Brush Design: Comes with a long brush attachment that reaches deep areas and removes dirt from hard-to-reach spots without leaving any dead corners.\n5. Compact and Lightweight Design: Small, portable, and easy to hold for long periods without fatigue, with a stylish design that fits perfectly in your car or storage space.\n6. Multiple Cleaning Attachments: Includes an extended flat nozzle and hair nozzle for cleaning various corners, air vents, grids, and hidden areas such as car upholstery and suede surfaces.",
+    "product_information": "Rated speed: 18000 (r/min), Rated input power: 120 (W), Battery capacity: 2000mah",
+    "thumbnail": "https://cf.cjdropshipping.com/4ff57d8b-4c08-4708-8cf1-136dd7bc144e.jpg?x-oss-process=image/format,webp,image/resize,m_fill,m_pad,w_800,h_800",
+    "gallery": [
+      "https://cf.cjdropshipping.com/4ff57d8b-4c08-4708-8cf1-136dd7bc144e.jpg?x-oss-process=image/format,webp,image/resize,m_fill,m_pad,w_800,h_800",
+      "https://cf.cjdropshipping.com/e0a845cd-27d1-45b0-8435-25dceb8f2526.jpg?x-oss-process=image/format,webp,image/resize,m_fill,m_pad,w_800,h_800",
+      "https://cf.cjdropshipping.com/b8c145d3-4cc1-4c5c-be1d-cbbfe080a8f4.jpg?x-oss-process=image/format,webp,image/resize,m_fill,m_pad,w_800,h_800",
+      "https://cf.cjdropshipping.com/a1ee4108-6dcb-4d26-882c-652176598859.jpg?x-oss-process=image/format,webp,image/resize,m_fill,m_pad,w_800,h_800",
+      "https://cf.cjdropshipping.com/950319ed-829c-42f6-b639-7e21b20fcb89.jpg?x-oss-process=image/format,webp,image/resize,m_fill,m_pad,w_800,h_800",
+      "https://cf.cjdropshipping.com/6f86f13e-7582-4854-8547-f22ba2211afd.jpg?x-oss-process=image/format,webp,image/resize,m_fill,m_pad,w_800,h_800"
+    ],
+    "videos": [
+      "https://video-cf.cjdropshipping.com/60e512e0e38e71eea9604531949c0102/a072a7d471c8459ea4949a1e8a0146ca-08c485b7d8d9a778555f5ed81f781696-ld.mp4"
     ]
   }
 ]
