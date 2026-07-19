@@ -647,6 +647,26 @@
             }
         }
     </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1066388682589524');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1066388682589524&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
 </head>
 
 <body>
@@ -655,7 +675,7 @@
         <span>Limited Time Offer: Get 28% Off + Fast Direct Shipping To Your Doorstep!</span>
     </div>
 
-     <!-- <a href="tel:+201069036495" class="floating-call" title="Contact Us">
+    <!-- <a href="tel:+201069036495" class="floating-call" title="Contact Us">
         <i class="fa-solid fa-headset icon"></i>
         <span class="text">Contact Us</span>
     </a> -->
@@ -1085,7 +1105,7 @@
             }
         });
     </script>
-     <footer id="Contact">
+    <footer id="Contact">
         <div class="container">
 
             <div class="big_row">
@@ -1128,7 +1148,7 @@
             <div class="row">
                 <h4>Contact us</h4>
 
-               <div class="links">
+                <div class="links">
                     <a> <b style="color: #dddddd;font-size: 17px;">Adress:</b> NewYork/USA</a>
                     <a> <b style="color: #dddddd;font-size: 17px;">Phone:</b> +1 (971) 502-6831</a>
                     <a> <b style="color: #dddddd;font-size: 17px;">Email:</b> alaamehrez2020@gmail.com</a>
