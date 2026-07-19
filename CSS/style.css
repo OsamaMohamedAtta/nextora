@@ -1368,10 +1368,10 @@ footer .bottom_footer .payment_img {
     transition: 0.3s ease-in-out;
 }
 
-.checkout .ordersummary .button_div button:hover {
+/* .checkout .ordersummary .button_div button:hover {
     background: transparent;
     color: var(--main_color);
-}
+} */
 
 .form-input input {
     width: 100%;
