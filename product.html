@@ -769,7 +769,7 @@
                         <span class="save-tag" id="discount-percent">28% OFF</span>
                         <span class="current-price" id="displayPrice">$25.00</span>
                         <span style="color: #666; font-size: 14px; font-weight: bold; margin-left: 5px;"
-                            id="egp-price">(Approx. 1,500 EGP)</span>
+                            id="egp-price">(Approx. Total Cost)</span>
                     </div>
                     <div style="margin-top: 5px;">
                         <span class="old-price" id="displayOldPrice">$35.00</span>
@@ -941,7 +941,8 @@
             // Calculate EGP if USD
             if (isUSD) {
                 const egpEquivalent = Math.round(price * 60); // Approximate conversion
-                document.getElementById('egp-price').textContent = `(Approx. ${egpEquivalent} EGP)`;
+                // document.getElementById('egp-price').textContent = `(Approx. ${egpEquivalent} EGP)`;
+                document.getElementById('egp-price').textContent = ``;
             } else {
                 document.getElementById('egp-price').textContent = ``;
             }
@@ -1271,7 +1272,8 @@
 
             if (currentCurrency === 'USD') {
                 const conversionRate = currentProduct && currentProduct.price_usd && currentProduct.price ? currentProduct.price / currentProduct.price_usd : 60;
-                document.getElementById('egp-price').textContent = `(Approx. ${Math.round(price * conversionRate)} EGP)`;
+                // document.getElementById('egp-price').textContent = `(Approx. ${Math.round(price * conversionRate)} EGP)`;
+                document.getElementById('egp-price').textContent = ``;
             } else {
                 document.getElementById('egp-price').textContent = ``;
             }
