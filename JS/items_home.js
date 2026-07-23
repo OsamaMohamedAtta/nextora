@@ -10,7 +10,7 @@ fetch('products.json')
 
 
         data.forEach(product => {
-            if (product.old_price && !product.second_section) {
+            if (product.old_price && !product.second_section && !product.no_section) {
 
                 const isInCart = cart.some(cartItem => cartItem.id === product.id);
 

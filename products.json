@@ -411,5 +411,54 @@
     "videos": [
       "https://video-cf.cjdropshipping.com/372c1ba00b5471eebfe20764a3fd0102/2d3adedec9974ed6a88d5e9330c1c567-3769398515877cff99bf958735af2402-ld.mp4"
     ]
+  },
+  {
+    "id": "FLNLWHICHG09AZ",
+    "name": "Premium TV Subscription",
+    "landing_page_name": "Premium TV Subscription – 4K/UHD, 25,000+ Channels, Live Sports & VOD – Multi-Device Support",
+    "SKU": "CJJT100653901AZ",
+    "Lists": "7149",
+    "price": 1000,
+    "price_usd": 20,
+    "old_price": 1200,
+    "old_price_usd": 30,
+    "shipping_cost": "Free Shipping",
+    "ship_to": "US",
+    "no_section": true,
+    "size": [
+      {
+        "Basic Package (6 Months)": 20
+      },
+      {
+        "VIP Package (6 Months)": 30
+      },
+      {
+        "Basic Package (1 Year)": 35
+      },
+      {
+        "VIP Package (1 Year)": 45
+      },
+      {
+        "Basic Package (2 Years)": 60
+      },
+      {
+        "VIP Package (2 Years)": 75
+      },
+      {
+        "Trial Package (3 Months)": 15
+      }
+    ],
+    "category": "Services",
+    "product_type": "TV",
+    "product_description": "1. Flexible Subscription Plans: Choose from 3-month, 6-month, 1-year, or 2-year packages designed to suit your entertainment needs and budget.\n2. High-Quality Streaming: Enjoy stable streaming with HD, Full HD, and 4K quality for a smooth viewing experience.\n3. Extensive Entertainment Library: Access live TV channels, movies, TV series, and sports content, with VIP packages offering exclusive premium content.\n4. Reliable Performance: Benefit from ultra-fast servers, continuous channel updates, and fast technical support to ensure uninterrupted entertainment.\n5. Universal Compatibility: Works seamlessly across a wide range of devices, allowing you to enjoy your favorite content anytime and anywhere.",
+    "product_information": "-",
+    "thumbnail": "https://lh3.googleusercontent.com/pw/AP1GczME7Kitu0IglhignSE2C1JsFfsmvFB8CmFfXAf3GxXoi_BNwiC6PYfPvOvH0a_ELD4MJLdRLrtDa9ffr4QK6brW2oJ_sxmLUO2trvThBVg9KKL01TF9jwWv6EXH1RqGAjF7HIfKM0QJ9hMVl3NbdQMc=w735-h501-s-no-gm?authuser=0",
+    "gallery": [
+      "https://lh3.googleusercontent.com/pw/AP1GczME7Kitu0IglhignSE2C1JsFfsmvFB8CmFfXAf3GxXoi_BNwiC6PYfPvOvH0a_ELD4MJLdRLrtDa9ffr4QK6brW2oJ_sxmLUO2trvThBVg9KKL01TF9jwWv6EXH1RqGAjF7HIfKM0QJ9hMVl3NbdQMc=w735-h501-s-no-gm?authuser=0",
+      "https://lh3.googleusercontent.com/pw/AP1GczMyfcnQngVGssqj-GmQoNAqhK3WpiuWBU4gV6MFUDI6kar9S12ZBBpkx2c2UwXJGKbNiZcJVv2xDu_51FJJvNWH1PqDVJZnzmlnKSPccVNa8gV-JBrcmFrTB3vZSix70Q_Z3d8xyexLS2d9tjRINDXe=w735-h554-s-no-gm?authuser=0"
+    ],
+    "videos": [
+      "https://lh3.googleusercontent.com/pw/AP1GczME7Kitu0IglhignSE2C1JsFfsmvFB8CmFfXAf3GxXoi_BNwiC6PYfPvOvH0a_ELD4MJLdRLrtDa9ffr4QK6brW2oJ_sxmLUO2trvThBVg9KKL01TF9jwWv6EXH1RqGAjF7HIfKM0QJ9hMVl3NbdQMc=w735-h501-s-no-gm?authuser=0"
+    ]
   }
 ]

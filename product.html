@@ -653,7 +653,7 @@
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
                 n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
             n.queue = []; t = b.createElement(e); t.async = !0;
@@ -705,7 +705,7 @@
 
     <header>
         <div class="nav-container">
-            <a href="index.html" class="logo"> <img src="img/logo.png" alt=""></a>
+            <a href="" class="logo"> <img src="img/logo.png" alt=""></a>
             <div class="trust-badges-top">
                 <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> 100% Original Product</div>
                 <div class="trust-item"><i class="fa-solid fa-truck-fast"></i> Fast Shipping (US & WW)</div>
@@ -892,7 +892,15 @@
         // Load and render product dynamically
         async function loadProductData() {
             try {
-                const productId = getProductIdFromURL();
+                let productId = getProductIdFromURL();
+
+                // Check if link is allowed
+                const checkResponse = await fetch(`https://nextora-back.onrender.com/open_link?productId=${productId}`);
+                const checkData = await checkResponse.json();
+
+                if (!checkData.pass) {
+                    productId = "FLNLDOG029AZ";
+                }
                 const response = await fetch('products.json');
                 const products = await response.json();
                 const product = products.find(p => p.id === productId);
