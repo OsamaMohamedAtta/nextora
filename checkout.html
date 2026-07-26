@@ -362,7 +362,7 @@
             <div class="row">
                 <h4>Contact us</h4>
 
-               <div class="links">
+                <div class="links">
                     <a> <b style="color: #dddddd;font-size: 17px;">Adress:</b> NewYork/USA</a>
                     <a> <b style="color: #dddddd;font-size: 17px;">Phone:</b> +1 (971) 502-6831</a>
                     <a> <b style="color: #dddddd;font-size: 17px;">Email:</b> info@nextora.online</a>
@@ -504,6 +504,7 @@
 
         const params = new URLSearchParams(window.location.search);
 
+        const orderId = params.get("orderId") || "";
         const paid = params.get("paid") || "";
 
         if (paid === "true" && paid != "") {
@@ -515,8 +516,8 @@
                 html: `
             <p>Your order has been placed successfully.</p>
             <p>
-                🚚 Your order will be delivered within 
-                <b>3 to 6 business days</b>.
+                🧾 Your order ID is: 
+                <b>${orderId}</b>.
             </p>
             <p>
                 If you face any issue, please contact our support team.
