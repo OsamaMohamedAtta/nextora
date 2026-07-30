@@ -427,8 +427,12 @@
     "no_section": true,
     "size": [
       {
+        "Trial Package (1 Day)": 1
+      },
+      {
         "Basic Package (6 Months)": 20
       },
+      
       {
         "VIP Package (6 Months)": 30
       },
