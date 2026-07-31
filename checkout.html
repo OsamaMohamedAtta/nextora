@@ -169,6 +169,40 @@
             background-color: #ccc;
             color: #666;
         }
+
+        .payment-container {
+            position: relative;
+        }
+
+        .price-btn {
+            position: absolute;
+            bottom: 25%;
+            left: 7%;
+            z-index: 9999;
+            padding: 1.1rem;
+            width: 86%;
+            color: white;
+            background-color: black;
+            font-size: 17px;
+            /* border-radius: 5px; */
+            pointer-events: none;
+        }
+
+        .layer {
+            position: absolute;
+            bottom: 3.5%;
+            left: 7%;
+            z-index: 9999;
+            width: 86%;
+            height: 155px;
+            background-color: white;
+        }
+
+        iframe {
+            width: 100%;
+            height: 700px;
+            border: none;
+        }
     </style>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -308,7 +342,9 @@
                         </div>
                     </div>
 
-                    <div id="payment"></div>
+                    <div id="payment" class="payment-container">
+
+                    </div>
                 </div>
 
                 <div class="input_info">
@@ -609,8 +645,6 @@
 
             const data = await res.json();
 
-            console.log(data);
-
             button.disabled = false;
             button.innerText = "Place order";
 
@@ -621,6 +655,8 @@
             height="700"
             frameborder="0">
         </iframe>
+        <button class="price-btn">Pay ${totalAmount} $</button>
+        <div class="layer"></div>
     `;
         }
 
