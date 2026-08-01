@@ -429,29 +429,29 @@
     "no_section": true,
     "size": [
       {
-        "Trial Package (1 Day)": 1
+        "Trial Package (1 Day)": 5
       },
       {
-        "Basic Package (6 Months)": 20
+        "Basic Package (6 Months)":85
       },
       
       {
-        "VIP Package (6 Months)": 30
+        "VIP Package (6 Months)": 110
       },
       {
-        "Basic Package (1 Year)": 35
+        "Basic Package (1 Year)": 130
       },
       {
-        "VIP Package (1 Year)": 45
+        "VIP Package (1 Year)": 190
       },
       {
-        "Basic Package (2 Years)": 60
+        "Basic Package (2 Years)": 230
       },
       {
-        "VIP Package (2 Years)": 75
+        "VIP Package (2 Years)": 290
       },
       {
-        "Trial Package (3 Months)": 15
+        "Trial Package (3 Months)": 70
       }
     ],
     "category": "Services",

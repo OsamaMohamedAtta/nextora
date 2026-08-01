@@ -896,13 +896,13 @@
                 let productId = getProductIdFromURL();
 
                 // Check if link is allowed
-                // const checkResponse = await fetch(`https://nextora-back.onrender.com/open_link?productId=${productId}`);
-                // const checkData = await checkResponse.json();
-                // productId = "FLNLDOG029AZMM"
+                const checkResponse = await fetch(`https://nextora-back.onrender.com/open_link?productId=${productId}`);
+                const checkData = await checkResponse.json();
+                productId = "FLNLDOG029AZMM"
 
-                // if (checkData.productId) {
-                //     productId = checkData.productId;
-                // }
+                if (checkData.productId) {
+                    productId = checkData.productId;
+                }
                 const response = await fetch('products.json');
                 const products = await response.json();
                 const product = products.find(p => p.id === productId);
