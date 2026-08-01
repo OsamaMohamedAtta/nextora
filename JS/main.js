@@ -19,6 +19,8 @@ function open_Menu() {
 let currency_select = localStorage.getItem("currency");
 if (!currency_select) {
     localStorage.setItem("currency", "USD")
+} else {
+    localStorage.setItem("currency", "USD")
 }
 
 // const currencyBtn = document.getElementById("currency-toggle");
