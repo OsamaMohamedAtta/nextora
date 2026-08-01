@@ -882,6 +882,7 @@
         // Global variable to store current product data
         let currentProduct = null;
         let currentCurrency = localStorage.getItem('currency') || 'EGP';
+        let productCurrency = 'USD'; // Default currency for product
 
         // Get product ID from URL query parameter
         function getProductIdFromURL() {
@@ -895,13 +896,13 @@
                 let productId = getProductIdFromURL();
 
                 // Check if link is allowed
-                const checkResponse = await fetch(`https://nextora-back.onrender.com/open_link?productId=${productId}`);
-                const checkData = await checkResponse.json();
-                productId = "FLNLDOG029AZMM"
+                // const checkResponse = await fetch(`https://nextora-back.onrender.com/open_link?productId=${productId}`);
+                // const checkData = await checkResponse.json();
+                // productId = "FLNLDOG029AZMM"
 
-                if (checkData.productId) {
-                    productId = checkData.productId;
-                }
+                // if (checkData.productId) {
+                //     productId = checkData.productId;
+                // }
                 const response = await fetch('products.json');
                 const products = await response.json();
                 const product = products.find(p => p.id === productId);
@@ -920,6 +921,8 @@
 
         // Render all product details on page
         function renderProductPage(product) {
+            localStorage.setItem('productCurrency', product.currency);
+            productCurrency = product.currency;
             // Update title and breadcrumb
             document.getElementById('product-title').textContent = product.landing_page_name || product.name;
             document.getElementById('breadcrumb-product').textContent = product.name;
@@ -938,14 +941,15 @@
 
             // Update prices
             const isUSD = currentCurrency === 'USD';
+            // const isUSD = true; // Always show USD for now
             const price = isUSD ? product.price_usd : product.price;
             const oldPrice = isUSD ? product.old_price_usd : product.old_price;
             const discount = Math.round(((oldPrice - price) / oldPrice) * 100);
 
-            document.getElementById('displayPrice').textContent = isUSD ? `$${price}.00` : `${price} EGP`;
-            document.getElementById('displayOldPrice').textContent = isUSD ? `$${oldPrice}.00` : `${oldPrice} EGP`;
+            document.getElementById('displayPrice').textContent = isUSD ? `${price}.00 ${productCurrency}` : `${price} EGP`;
+            document.getElementById('displayOldPrice').textContent = isUSD ? `${oldPrice}.00 ${productCurrency}` : `${oldPrice} EGP`;
             document.getElementById('discount-percent').textContent = `${discount}% OFF`;
-            document.getElementById('mobilePrice').textContent = isUSD ? `$${price}.00` : `${price} EGP`;
+            document.getElementById('mobilePrice').textContent = isUSD ? `${price}.00 ${productCurrency}` : `${price} EGP`;
 
             // Calculate EGP if USD
             if (isUSD) {
@@ -1016,7 +1020,7 @@
         function renderSizeOptions(product) {
             const container = document.getElementById('size-options');
             container.innerHTML = '';
-            const currencySymbol = currentCurrency === 'USD' ? '$' : 'EGP';
+            const currencySymbol = currentCurrency === 'USD' ? currentCurrency : 'EGP';
             const basePrice = currentCurrency === 'USD' ? product.price_usd : product.price;
             const baseOldPrice = currentCurrency === 'USD' ? product.old_price_usd : product.old_price;
             const conversionRate = product.price_usd && product.price ? product.price / product.price_usd : 60;
@@ -1182,7 +1186,7 @@
             const cartItemsContainer = document.getElementById("cart_items")
             if (!cartItemsContainer) return;
 
-            const currencySymbol = localStorage.getItem('currency') === 'USD' ? '$' : 'EGP';
+            const currencySymbol = localStorage.getItem('currency') === 'USD' ? productCurrency : 'EGP';
 
             const cart = JSON.parse(localStorage.getItem('cart')) || []
 
@@ -1273,8 +1277,8 @@
             btns.forEach(b => b.classList.remove('active'));
             element.classList.add('active');
 
-            const displayPriceText = currentCurrency === 'USD' ? `$${price}.00` : `${price} EGP`;
-            const displayOldPriceText = currentCurrency === 'USD' ? `$${oldPrice}.00` : `${oldPrice} EGP`;
+            const displayPriceText = currentCurrency === 'USD' ? `${price}.00 ${productCurrency}` : `${price} EGP`;
+            const displayOldPriceText = currentCurrency === 'USD' ? `${oldPrice}.00 ${productCurrency}` : `${oldPrice} EGP`;
             document.getElementById('displayPrice').innerText = displayPriceText;
             document.getElementById('displayOldPrice').innerText = displayOldPriceText;
             document.getElementById('mobilePrice').innerText = displayPriceText;
@@ -1289,7 +1293,7 @@
 
             const discount = oldPrice && price ? Math.round(((oldPrice - price) / oldPrice) * 100) : 0;
             document.getElementById('discount-percent').textContent = discount ? `${discount}% OFF` : '';
-            document.getElementById('discount-badge').textContent = currentCurrency === 'USD' ? `Save $${Math.round(oldPrice - price)}.00` : `Save ${Math.round(oldPrice - price)} EGP`;
+            document.getElementById('discount-badge').textContent = currentCurrency === 'USD' ? `Save ${Math.round(oldPrice - price)}.00 ${productCurrency}` : `Save ${Math.round(oldPrice - price)} EGP`;
         }
 
         // Quantity Updater

@@ -375,6 +375,7 @@
     "old_price_usd": 30,
     "shipping_cost": "Free Shipping",
     "ship_to": "US",
+    "currency": "USD",
     "second_section": true,
     "size": [
       {
@@ -424,6 +425,7 @@
     "old_price_usd": 30,
     "shipping_cost": "Free Shipping",
     "ship_to": "US",
+    "currency": "AED",
     "no_section": true,
     "size": [
       {
@@ -477,6 +479,7 @@
     "old_price_usd": 30,
     "shipping_cost": "Free Shipping",
     "ship_to": "US",
+    "currency": "SAR",
     "no_section": true,
     "size": [
       {

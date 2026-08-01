@@ -97,7 +97,9 @@ function updateCart() {
 
     var total_Price = 0
     var total_count = 0
-    const currencySymbol = localStorage.getItem('currency') === 'USD' ? '$' : 'EGP';
+    let productCurrency = localStorage.getItem('productCurrency') || 'USD';
+
+    const currencySymbol = localStorage.getItem('currency') === 'USD' ? productCurrency : 'EGP';
 
     if (!cartItemsContainer) return;
     cartItemsContainer.innerHTML = "";
@@ -115,7 +117,7 @@ function updateCart() {
                 <img src="${item.thumbnail}" alt="">
                 <div class="content">
                     <h4>${item.name}</h4>
-                    <p class="price_cart">${currencySymbol} ${total_Price_item}</p>
+                    <p class="price_cart">${total_Price_item} ${currencySymbol}</p>
                     <div class="quantity_control">
                         <button class="decrease_quantity" data-index=${index}>-</button>
                         <span class="quantity">${item.quantity}</span>
@@ -135,7 +137,7 @@ function updateCart() {
 
     const count_item_header = document.querySelector('.count_item_header')
 
-    price_cart_total.innerHTML = `${currencySymbol} ${total_Price}`
+    price_cart_total.innerHTML = `${total_Price} ${currencySymbol}`
 
     count_item_cart.innerHTML = total_count
 

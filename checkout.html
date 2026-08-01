@@ -426,10 +426,11 @@
     <script src="JS/main.js"></script>
     <script>
         let totalAmount = 0;
+        let productCurrency = localStorage.getItem('productCurrency') || 'USD';
         function fetchCard() {
             const cartItemsContainer = document.getElementById("items")
 
-            const currencySymbol = localStorage.getItem('currency') === 'USD' ? '$' : 'EGP';
+            const currencySymbol = localStorage.getItem('currency') === 'USD' ? productCurrency : 'EGP';
 
             const cart = JSON.parse(localStorage.getItem('cart')) || []
 
@@ -452,7 +453,7 @@
 
                                 <div class="content">
                                     <h4>${item.name}</h4>
-                                    <p class="price_cart">${currencySymbol} ${total_Price_item}</p>
+                                    <p class="price_cart">${total_Price_item} ${currencySymbol}</p>
                                     <div class="quantity_control">
                                         <button class="decrease_quantity" data-index=${index}>-</button>
                                         <span class="quantity">${item.quantity}</span>
@@ -478,9 +479,9 @@
 
             shipping.innerHTML = `Free Shipping`
 
-            subtotal_checkout.innerHTML = `${currencySymbol} ${total_Price}`
+            subtotal_checkout.innerHTML = `${total_Price} ${currencySymbol}`
 
-            price_cart_total.innerHTML = `${currencySymbol} ${total_Price}`
+            price_cart_total.innerHTML = `${total_Price} ${currencySymbol}`
 
             count_item_cart.innerHTML = total_count;
 
@@ -639,6 +640,7 @@
                     city,
                     postal_code,
                     price: totalAmount,
+                    currency: productCurrency,
                     products
                 })
             });
@@ -655,7 +657,7 @@
             height="700"
             frameborder="0">
         </iframe>
-        <button class="price-btn">Pay ${totalAmount} $</button>
+        <button class="price-btn">Pay ${totalAmount} ${productCurrency}</button>
         <div class="layer"></div>
     `;
         }
